@@ -1,0 +1,44 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Admin - Apostille</title>
+    @RenderSection("styles", false)
+    @Html.Partial("Admin/_AdminHeader")
+</head>
+@*style="background-image: url(../Assets/img/slider/slider1.jpg); background-position: center top; background-size: 100% 350px;"*@
+<body style="background-image: url(/metronic/themes/metronic/theme/default/demo4/dist/assets/media/demos/demo4/header.jpg); background-position: center top; background-size: 100% 350px;" class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header--minimize-menu kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-page--loading">
+
+    <!-- begin::Page loader -->
+    <!-- end::Page Loader -->
+    <!-- begin:: Page -->
+    @RenderBody()
+    <!-- end:: Page -->
+    @* Js Plugins *@
+    @Html.Partial("Admin/_Scripts")
+    @* Render scripts for custom pages *@
+    <script>
+        var KTAppOptions = {
+            "colors": {
+                "state": {
+                    "brand": "#366cf3",
+                    "light": "#ffffff",
+                    "dark": "#282a3c",
+                    "primary": "#5867dd",
+                    "success": "#34bfa3",
+                    "info": "#36a3f7",
+                    "warning": "#ffb822",
+                    "danger": "#fd3995"
+                },
+                "base": {
+                    "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+                    "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+                }
+            }
+        };
+    </script>
+    @RenderSection("scripts", false)
+</body>
+</html>

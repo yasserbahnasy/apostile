@@ -1,0 +1,87 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Admin - Apostille</title>
+    @RenderSection("styles", false)
+    @Html.Partial("Admin/_AdminHeader")
+</head>
+@*style="background-image: url(../Assets/img/slider/slider1.jpg); background-position: center top; background-size: 100% 350px;"*@
+<body  class="kt-page--loading-enabled kt-page--loading kt-page--fixed kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header--minimize-menu kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-page--loading">
+    <img src="~/Assets/img/slider/slider2.jpg" style="
+    position: absolute;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position:center top;
+"/>
+    <div class="overlay" style="
+    background: linear-gradient(-45deg, #1c4e98, rgba(0, 0, 0, 0));
+    background-size: 100% 350px,cover;
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+"/>
+    <!-- begin::Page loader -->
+    <!-- end::Page Loader -->
+    <!-- begin:: Page -->
+    <!-- begin:: Header Mobile -->
+    <!-- begin:: Header Mobile -->
+    @Html.Partial("Admin/_HeaderMobile")
+    <!-- end:: Header Mobile -->
+    <div class="kt-grid kt-grid--hor kt-grid--root">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
+                <!-- begin:: Header -->
+                @Html.Partial("Admin/_Header")
+                <!-- end:: Header -->
+                <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-grid--stretch">
+                    <div class="kt-container kt-body  kt-grid kt-grid--ver" id="kt_body">
+                        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: Page -->
+    <!-- begin::Quick Panel -->
+    @Html.Partial("Admin/_QuickPanel")
+    <!-- end::Quick Panel -->
+    <!-- begin::Scrolltop -->
+    <div id="kt_scrolltop" class="kt-scrolltop">
+        <i class="fa fa-arrow-up"></i>
+    </div>
+    <!-- end::Scrolltop -->
+
+    @RenderSection("modals", false)
+    @* Js Plugins *@
+    @Html.Partial("Admin/_Scripts")
+    @* Render scripts for custom pages *@
+        <script>
+			var KTAppOptions = {
+				"colors": {
+					"state": {
+						"brand": "#366cf3",
+						"light": "#ffffff",
+						"dark": "#282a3c",
+						"primary": "#5867dd",
+						"success": "#34bfa3",
+						"info": "#36a3f7",
+						"warning": "#ffb822",
+						"danger": "#fd3995"
+					},
+					"base": {
+						"label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+						"shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+					}
+				}
+			};
+    </script>
+    @RenderSection("scripts", false)
+    @* Core Script *@
+</body>
+</html>

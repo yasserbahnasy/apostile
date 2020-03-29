@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "BlogSingle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles {}
+
+<!-- Title -->
+<div class="main-title" style="">
+    <div class="container">
+        <h1 class="main-title__primary">Blogs</h1>
+        <h3 class="main-title__secondary">What is happening around us</h3>
+    </div>
+</div>
+<!-- Breadcrumb -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a href="/" class="font-weight-bold">Home</a>
+        </span>
+        <span>
+            <a href="/blog" class="font-weight-bold">Blog</a>
+        </span>
+        <span>
+            <a href="/blog" class="font-weight-bold">Apostille</a>
+        </span>
+        <span>
+            <span>HAGUE APOSTILLE EXAMPLES</span>
+        </span>
+    </div>
+</div>
+<!-- Body -->
+<div class="container">
+    <div class="row mb-5" id="main-content">
+        <div class="col-md-9 content" id="content">
+            <div class="blog-list">
+                <article class="blog-card mb-5">
+                    <a class="d-block">
+                        <img class="blog-card-img w-100" src="~/Assets/img/blog/1.jpg" />
+                    </a>
+                    <div class="meta-data">
+                        <time class="meta-data-date">May 6, 2015</time>
+                        <span class="meta-data-separator">/</span>
+                        <span class="author">
+                            <span class="meta-data-author">
+                                By
+                                <span class="fn">Admin</span>
+                            </span>
+                        </span>
+                        <span class="meta-data-separator">/</span>
+                        <span class="meta-data__categories">
+                            <a href="javascript:void(0)">Apostille</a>
+                            •
+                            <a href="javascript:void(0)">Egypt Embassy Legalization</a>
+                        </span>
+                    </div>
+                    <h2 class="entry-title">
+                        <a href="javascript:void(0)">HAGUE APOSTILLE EXAMPLES</a>
+                    </h2>
+                    <div class="entry-content">
+                        <div class="entry-content">
+                            <p>
+                                <strong>
+                                    You can avoid traveling to a foreign country by obtaining an apostille on
+                                    your power of attorney.
+                                </strong>
+                                &nbsp; For example, if you would like to sell your property in Greece, you
+                                can assign a family member, friend, or attorney in Greece to act on your
+                                behalf while you are still in the United States. In business, some people
+                                will refer to a power of attorney as an authorization of agent.
+                            </p>
+                            <p>
+                                In order to apostille your power of attorney, you must mail in the original
+                                signed and notarized document to our office for processing.&nbsp; A power of
+                                attorney can only be authenticated from the State it was signed and
+                                notarized in. The notary must be commissioned and use proper notarial
+                                wording for their State.
+                            </p>
+                            <p>
+                                <span style="color: #ff0000;">
+                                    <strong>
+                                        Beware of web-sites that ask you to upload your documents! Only
+                                        original notarized documents can receive an apostille form the Secretary
+                                        of State.
+                                    </strong>
+                                </span>
+                            </p>
+                            <p>
+                                The Secretary of State does not have the authority to authenticate documents
+                                notarized in other States. For example, if your power of attorney was signed
+                                and notarized in the State of California, the State of California is the
+                                only State that can issue the apostille.&nbsp; Another example is if your
+                                power of attorney was signed and notarized in the State of New York, only
+                                the State of New York can issue the apostille.
+                            </p>
+                            <p>
+                                Some States require a notarized document to also be authenticated by the
+                                County Clerk.&nbsp; These States
+                                include:&nbsp;Hawaii,&nbsp;Kentucky,&nbsp;Maryland,&nbsp;New York,
+                                and&nbsp;Tennessee.
+                            </p>
+                            <p>
+                                We recommend that your power of attorney be prepared by a professional from
+                                the Country requesting it. For example, if the Country of Mexico is
+                                requesting a signed and notarized power of attorney, we recommend that an
+                                attorney or paralegal in Mexico prepare your document both in English and
+                                Spanish.&nbsp; Some US States will not apostille a document written in a
+                                foreign language.&nbsp; In order to avoid this, we recommend your documents
+                                to be written in both languages.
+                            </p>
+                            <p>
+                                If you are located outside of the USA and need to have your signed power of
+                                attorney authenticated for a country other than the USA, you can contact the
+                                local U.S. Embassy or U.S. Consulate office and meet with a U.S. Federal
+                                notary.&nbsp; Once notarized, you can then mail in this document to our
+                                Washington DC apostille office for processing.
+                            </p>
+                            <p>
+                                Obtaining an apostille can be complicated. Don’t leave this process to
+                                untrained employees or non-professionals who do not fully understand the
+                                Apostille process and the unique requirements of certain countries. Your
+                                paperwork could be rejected costing you time and money. Don’t let this
+                                happen to you!
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                @Html.Partial("Components/_Comment")
+            </div>
+        </div>
+        <div class="col-md-3">
+            <!-- Side bar -->
+            @Html.Partial("Components/_Sidebar")
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/Assets/js/jquery.sticky-sidebar.min.js"></script>
+    <script src="~/Assets/js/pages/sidebar.js"></script>
+}
+
+
+
+

@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Blogs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles {}
+
+<!-- Title -->
+<div class="main-title" style="">
+    <div class="container">
+        <h1 class="main-title__primary">Blogs</h1>
+        <h3 class="main-title__secondary">What is happening around us</h3>
+    </div>
+</div>
+<!-- Breadcrumb -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a href="/" class="font-weight-bold">Home</a>
+        </span>
+        <span>
+            <span>Blogs</span>
+        </span>
+    </div>
+</div>
+<!-- Body -->
+<div class="container">
+    <div class="row mb-5" id="main-content">
+        <div class="col-md-9 content" id="content">
+            <div class="blog-list">
+                @for (int i = 1; i < 4; i++)
+                    {
+                    <article class="blog-card mb-5">
+                        <a href="/blog/blog-single" class="d-block">
+                            @{
+                                    var src = "../Assets/img/blog/" + i + ".jpg";
+                            }
+                            <img class="blog-card-img w-100" src="@src" />
+                        </a>
+                        <div class="meta-data">
+                            <time class="meta-data-date">May 6, 2015</time>
+                            <span class="meta-data-separator">/</span>
+                            <span class="author">
+                                <span class="meta-data-author">
+                                    By
+                                    <span class="fn">Admin</span>
+                                </span>
+                            </span>
+                            <span class="meta-data-separator">/</span>
+                            <span class="meta-data__categories">
+                                <a href="javascript:void(0)">Apostille</a>
+                                •
+                                <a href="javascript:void(0)">Egypt Embassy Legalization</a>
+                            </span>
+                        </div>
+                        <h2 class="entry-title">
+                            <a href="/blog/blog-single"> HAGUE APOSTILLE EXAMPLES</a>
+                        </h2>
+                        <div class="entry-content">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sollicitudin, ex ut consequat vestibulum, enim elit sollicitudin sem, ut hendrerit quam nisl in turpis. Vestibulum posuere elit ac lectus facilisis, elementum tincidunt orci fermentum. Quisque tellus massa, viverra id enim sit amet, sollicitudin viverra dolor. Nunc maximus orci eget gravida mattis.
+                            </p>
+                            <a class="btn btn-default" href="/blog/blog-single">Read more</a>
+                        </div>
+                    </article>
+                    }
+            </div>
+            <!-- Pagination -->
+            <nav>
+                <ul class="pagination mb-5">
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+                    <li class="page-item"><a class="page-link active" href="javascript:void(0)">2</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
+                </ul>
+            </nav>
+
+        </div>
+        <div class="col-md-3">
+            <!-- Side bar -->
+            @Html.Partial("Components/_Sidebar")
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts {
+    <script src="~/Assets/js/jquery.sticky-sidebar.min.js"></script>
+    <script src="~/Assets/js/pages/sidebar.js"></script>
+}
