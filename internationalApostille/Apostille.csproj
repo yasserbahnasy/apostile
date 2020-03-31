@@ -134,6 +134,7 @@
     <Content Include="Assets\admin\css\demo4\pages\general\wizard\wizard-3.rtl.css" />
     <Content Include="Assets\admin\css\demo4\pages\general\wizard\wizard-4.css" />
     <Content Include="Assets\admin\css\demo4\pages\general\wizard\wizard-4.rtl.css" />
+    <Content Include="Assets\admin\css\demo4\plugins.bundle.css" />
     <Content Include="Assets\admin\css\demo4\style.bundle.css" />
     <Content Include="Assets\admin\css\demo4\style.bundle.rtl.css" />
     <Content Include="Assets\admin\js\demo4\pages\components\base\dropdown.js" />
@@ -243,6 +244,7 @@
     <Content Include="Assets\admin\js\demo4\pages\wizard\wizard-2.js" />
     <Content Include="Assets\admin\js\demo4\pages\wizard\wizard-3.js" />
     <Content Include="Assets\admin\js\demo4\pages\wizard\wizard-4.js" />
+    <Content Include="Assets\admin\js\demo4\plugins.bundle.js" />
     <Content Include="Assets\admin\js\demo4\scripts.bundle.js" />
     <Content Include="Assets\admin\media\bg\300.jpg" />
     <Content Include="Assets\admin\media\bg\350.jpg" />
@@ -1121,6 +1123,7 @@
     <Content Include="Assets\admin\vendors\global\fonts\socicon\socicon.svg" />
     <Content Include="Assets\admin\vendors\global\img\owl.carousel\ajax-loader.gif" />
     <Content Include="Assets\admin\vendors\global\img\owl.carousel\owl.video.play.png" />
+    <Content Include="Assets\admin\vendors\global\plugins.bundle.css" />
     <Content Include="Assets\admin\vendors\global\vendors.bundle.css" />
     <Content Include="Assets\admin\vendors\global\vendors.bundle.js" />
     <Content Include="Assets\admin\vendors\global\vendors.bundle.rtl.css" />

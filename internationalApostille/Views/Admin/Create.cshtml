@@ -46,19 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label>Keywords</label>
-                            <select class="form-control kt-select2" id="kt_select2_3" name="param" multiple="multiple">
-                                <option> Apostille </option>
-                                <option selected> Apostille Birth Certificate </option>
-                                <option> Apostille Diploma </option>
-                                <option selected> FBI Apostille </option>
-                                <option selected> Kuwait Embassy </option>
-                                <option>Embassy Attestation</option>
-                                <option>Legalization</option>
-                            </select>
-                            <a href="javascript:void(0)" class="d-block mt-3">
-                                <i class="flaticon2-plus mr-2"></i>
-                                <span>Add new Keyword</span>
-                            </a>
+                            <input id="kt_tagify_1" name='tags' placeholder='type...' value='css, html, javascript' autofocus data-blacklist='.NET,PHP'>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
@@ -115,7 +103,11 @@
                                 <span> Permalink : </span>
                             </h6>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" value="https://apostille.com/blog-post-title-1" />
+                                <input type="text" id="permaLink" class="form-control" value="blog-post-title-1" />
+                                <p class="text-muted small">
+                                    <span>https://apostille.com/</span>
+                                    <span id="url" class="text-primary">blog-post-title-1</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -123,6 +115,29 @@
                         <div class="kt-form__actions d-flex flex-sm-wrap justify-content-between">
                             <button type="reset" class="btn text-danger">Move To trash</button>
                             <button type="reset" class="btn btn-brand">Publish</button>
+                        </div>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Portlet-->
+            <!--begin::Portlet-->
+            <div class="kt-portlet">
+                <div class="kt-portlet__head">
+                    <div class="kt-portlet__head-label">
+                        <h3 class="kt-portlet__head-title">
+                            Featured image
+                        </h3>
+                    </div>
+                </div>
+                <!--begin::Form-->
+                <form class="kt-form">
+                    <div class="kt-portlet__body">
+                        <div class="dropzone dropzone-default" id="kt_dropzone_1">
+                            <div class="dropzone-msg dz-message needsclick">
+                                <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
+                                <span class="dropzone-msg-desc">This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.</span>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -180,10 +195,23 @@
     <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/bootstrap-select.js"></script>
     <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/select2.js"></script>
     <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/bootstrap-maxlength.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/dropzone.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/tagify.js"></script>
     <script>
-            $(function () {
-                $('#createBlogpost').closest('.kt-menu__item--rel').addClass('kt-menu__item--here');
-                $('#createBlogpost').closest('.kt-menu__item').addClass('kt-menu__item--here');
+        $(function () {
+            $('#createBlogpost').closest('.kt-menu__item--rel').addClass('kt-menu__item--here');
+            $('#createBlogpost').closest('.kt-menu__item').addClass('kt-menu__item--here');
+            console.clear();
+
+            $('#permaLink').keyup(function (e) {
+                $('#url').text($(this).val())
+
+            }).keypress(function (e) {
+                if (e.which === 32) {
+                    return false;
+                }
             })
+
+        })
     </script>
 }

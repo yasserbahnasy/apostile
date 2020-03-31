@@ -5,50 +5,18 @@ var KTDropzoneDemo = function () {
     // Private functions
     var demos = function () {
         // single file upload
-        Dropzone.options.kDropzoneOne = {
-            paramName: "file", // The name that will be used to transfer the file
+
+        $("#kt_dropzone_1").dropzone({
+            url: "https://keenthemes.com/scripts/void.php",
+            paramName: "file",
             maxFiles: 1,
-            maxFilesize: 5, // MB
-            addRemoveLinks: true,
-            accept: function(file, done) {
-                if (file.name == "justinbieber.jpg") {
-                    done("Naha, you don't.");
-                } else { 
-                    done(); 
-                }
-            }   
-        };
-
-        // multiple file upload
-        Dropzone.options.kDropzoneTwo = {
-            paramName: "file", // The name that will be used to transfer the file
-            maxFiles: 10,
-            maxFilesize: 10, // MB
-            addRemoveLinks: true,
-            accept: function(file, done) {
-                if (file.name == "justinbieber.jpg") {
-                    done("Naha, you don't.");
-                } else { 
-                    done(); 
-                }
-            }   
-        };
-
-        // file type validation
-        Dropzone.options.kDropzoneThree = {
-            paramName: "file", // The name that will be used to transfer the file
-            maxFiles: 10,
-            maxFilesize: 10, // MB
-            addRemoveLinks: true,
-            acceptedFiles: "image/*,application/pdf,.psd",
-            accept: function(file, done) {
-                if (file.name == "justinbieber.jpg") {
-                    done("Naha, you don't.");
-                } else { 
-                    done(); 
-                }
-            }   
-        };
+            maxFilesize: 5,
+            addRemoveLinks: !0,
+            accept: function (e, o) {
+                "justinbieber.jpg" == e.name ? o("Naha, you don't.") : o();
+            }
+        })
+        
     }
 
     return {
