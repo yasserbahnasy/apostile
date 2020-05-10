@@ -1,0 +1,77 @@
+﻿
+<div class="header__container">
+    <div class="container">
+        <header class="header" role="banner">
+            <div class="header__logo">
+                <a href="/">
+                    <img src="~/Assets/img/logo.png" alt="CargoPress" class="w-100">
+                </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cargopress-navbar-collapse" aria-expanded="false">
+                    <span class="navbar-toggle__text">MENU</span>
+                    <span class="navbar-toggle__icon-bar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </span>
+                </button>
+            </div>
+            <div class="header__navigation  js-sticky-offset">
+                <nav class="navbar-collapse collapse" role="navigation" aria-label="Main Menu" id="cargopress-navbar-collapse" aria-expanded="false">
+                    <ul id="menu-main-menu" class="main-navigation  js-main-nav  js-dropdown" role="menubar">
+                        <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  page_item page-item-6  menu-item-11"><a href="/"><i class="fa fa-home mr-2"></i>Home</a></li>
+                        <li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-84" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                            <a href="javascript:void(0)">Hague Apostille Countries</a>
+                            <ul class="sub-menu">
+                                <li id="menu-item-103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103"><a href="/what-is-an-apostille">What is an Apostille?</a></li>
+                            </ul>
+                        </li><li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-84" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                                 <a href="javascript:void(0)">USA Apostille</a>
+                            <ul class="sub-menu">
+                                <li id="menu-item-103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103"><a href="/fbi-apostille">FBI Apostille</a></li>
+                                <li id="menu-item-103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103"><a href="/example-of-us-state-apostilles">Example of U.S. State Apostilles</a></li>
+                                <li id="menu-item-103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103"><a href="/us-department-of-state-apostille">US Department of State Apostille</a></li>
+                                <li id="menu-item-103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103"><a href="/embassy-consul-legalization">Embassy / Consulate Legalization</a></li>
+                                <li id="menu-item-103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103"><a href="/how-to-apostille">How to Apostille</a></li>
+                            </ul>
+                        </li>
+                        <li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="/blog">Blog</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header__widgets">
+                <div class="widget  widget-icon-box">
+                    <div class="icon-box">
+                        <i class="fa  fa-headphones"></i>
+                        <h4 class="icon-box__title">Call Us Anytime</h4>
+                        <a href="tel:1-888-123-4567" class="icon-box__subtitle">1-888-123-4567</a>
+                    </div>
+                </div><div class="widget  widget-icon-box">
+                    <div class="icon-box">
+                        <i class="fa  fa-clock-o"></i>
+                        <h4 class="icon-box__title">Opening Time</h4>
+                        <span class="icon-box__subtitle">08:00 - 18:00</span>
+                    </div>
+                </div><div class="widget  widget-icon-box">
+                    <div class="icon-box">
+                        <i class="fa  fa-envelope-o"></i>
+                        <h4 class="icon-box__title">Email Us</h4>
+                        <a href="mailto:info@international.io" class="icon-box__subtitle">info@international.io</a>
+                    </div>
+                </div><div class="widget  widget_text">
+                    <div class="textwidget">
+                        <a class="btn btn-secondary" href="/example-of-us-state-apostilles"  rel="noopener noreferrer">Order form</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header__navigation-widgets">
+                @*<div class="widget  widget-social-icons">
+                    <a class="social-icons__link" href="javascript:void(0)" target="_blank"><i class="fa  fa-facebook"></i></a>
+                    <a class="social-icons__link" href="javascript:void(0)" target="_blank"><i class="fa  fa-twitter"></i></a>
+                    <a class="social-icons__link" href="javascript:void(0)" target="_blank"><i class="fa  fa-linkedin"></i></a>
+                    <a class="social-icons__link" href="javascript:void(0)" target="_blank"><i class="fa  fa-youtube-play"></i></a>
+                </div>*@
+                @Html.Partial("./Widgets/_Search")
+            </div>
+        </header>
+    </div>
+</div>

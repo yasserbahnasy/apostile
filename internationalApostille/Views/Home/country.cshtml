@@ -1,0 +1,93 @@
+﻿@model internationalApostille.Models.Country
+@using internationalApostille.Models;
+@{
+    var db = new USDBEntities();
+    var CountryDetails = db.Counties.Where(a => a.CountyId == Model.CountryID).FirstOrDefault();
+}
+@{
+    ViewBag.Title = @Model.CountryName + " Apostille";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- Breadcrumb -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a href="/" class="font-weight-bold">Home</a>
+        </span>
+        <span>
+            <span>@Html.DisplayFor(model => model.CountryName)</span>
+        </span>
+    </div>
+</div>
+<!-- Body -->
+<div class="container">
+    <div class="row mb-5" id="main-content">
+        <div class="col-md-9 content" id="content">
+            <div class="blog-list">
+                <article class="blog-card mb-5">
+
+                    <h1 class="entry-title">
+                        <a href="javascript:void(0)">@Html.DisplayFor(model => model.CountryName)</a>
+                    </h1>
+                    <div class="entry-content">
+                        <div class="entry-content">
+                            @{string imgSRC = "/Uploads/flags/" + @Model.CountryName.Replace(" ", "-") + "-apostille.png"; }
+                            <p><img class="alignright size-full wp-image-652" title="@Html.DisplayFor(model => model.CountryName) Apostille" src="@imgSRC" alt="" width="155" height="93">@Html.DisplayFor(model => model.CountryName) is a member of the Hague Apostille Convention and any official document destined for this&nbsp;country requires an Apostille from the Secretary of State. @Html.DisplayFor(model => model.CountryName) joined the Hague Apostille Convention on May 9, 2004. (Convention of 5 October 1961 Abolishing the Requirement of Legalization for Foreign Public Documents).</p>
+                            <p>We can Apostille documents issued from any <a href="/united-states-apostille/">US State</a> including documents issued by the <a href="/us-department-of-state-apostille/">US Federal Government</a>.</p>
+
+                            @if (CountryDetails != null)
+                            {
+                                <p>
+                                    Office Hours: @CountryDetails.WorkingHours<br>
+                                    Customer Support: @CountryDetails.Phone<br>
+                                    Email: <a href="mailto:@CountryDetails.Email"></a>
+                                </p>
+                            }
+                            <p>Common documents we receive are:</p>
+                            <ul>
+                                <li><a href="/order-form/"><img class="alignright size-full wp-image-454" src="/wp-content/uploads/2013/10/Apostille-Process-USA.jpg" alt="" srcset="/wp-content/uploads/2013/10/Apostille-Process-USA.jpg 306w, /wp-content/uploads/2013/10/Apostille-Process-USA-300x290.jpg 300w" sizes="(max-width: 306px) 100vw, 306px" width="306" height="296"></a>Birth Certificates</li>
+                                <li>Marriage Certificates</li>
+                                <li>Death Certificates</li>
+                                <li>Divorce Decree</li>
+                                <li>Single Status Affidavit</li>
+                                <li>Background Checks (Local, State, FBI)</li>
+                                <li>Power of Attorney</li>
+                                <li>Copy of Passport</li>
+                                <li>Copy of Driver License</li>
+                                <li>Transcripts</li>
+                                <li>Diplomas</li>
+                                <li>Authorization Letter</li>
+                                <li>Travel Consent Letter</li>
+                                <li>Articles of Incorporation</li>
+                                <li>Certificate of Good Standing</li>
+                                <li>Certification of Free Sale</li>
+                                <li>Certification of Origin</li>
+                                <li>Corporate Power of Attorney</li>
+                                <li>Commercial Invoice</li>
+                            </ul>
+                            <p><span style="color: #0000ff;"><strong>Please Note: We can only help you with documents originating from the United States.</strong> If your documents originated from @Html.DisplayFor(model => model.CountryName), you will need to contact the correct competent authority to assist you in that country.</span></p>
+                            <p>If you are currently in @Html.DisplayFor(model => model.CountryName) or another country and need help to obtain your documents, please <a href="/contact-us/" target="_blank" rel="noopener">Contact Us</a> and let us know how we can help. Certain documents will require notarization prior to an Apostille.&nbsp; Overnight domestic shipping is included in our fee but we can ship your documents anywhere in the world.&nbsp; International shipping rates apply.</p>
+                            <p>Apostilles can be complicated. Don’t leave this process to untrained employees or non-professionals who do not fully understand the Apostille process and the unique requirements of certain countries. Your paperwork could be rejected costing you time and money. Don’t let this happen to you!</p>
+                            <p><a href="/order-form/"><img class="alignleft size-full wp-image-215" src="/wp-content/uploads/2013/10/International-Apostille-Order-Form-PDF-Small.jpg" alt="International Apostille Order Form PDF" width="126" height="143"></a>Click to download our <a href="/order-form/">International Apostille Order Form</a>. Our Apostille service is fast, convenient, and saves you time and money.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <!-- Side bar -->
+            @Html.Partial("Components/_Sidebar")
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Assets/js/jquery.sticky-sidebar.min.js"></script>
+    <script src="~/Assets/js/pages/sidebar.js"></script>
+    <script>
+        $("#blogPostId").val($("#PostID").val());
+    </script>
+}

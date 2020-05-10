@@ -1,0 +1,103 @@
+﻿@using internationalApostille.Models;
+<div class="sidebar" id="sidebar">
+    <div class="sidebar__inner">
+        <!-- Recent-->
+        <div class="sidebar-section">
+            <h5 class="font-weight-bold text-uppercase">Recent Posts</h5>
+            <ul class="posts text-accent small">
+                @{
+
+                    var db = new apostilleDBEntities();
+
+                    var Posts = db.BlogPosts.ToList();
+
+                }
+                @foreach (var item in Posts.Take(7))
+                {
+                    <li>
+                        <a href="/blog/@item.url">@item.title</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <!-- Tags -->
+        <div class="sidebar-section">
+            <h5 class="font-weight-bold text-uppercase">Tags</h5>
+            
+            <div class="tag-wrapper">
+                <a class="" style="font-size: 22pt;" href="javascript:void(0)">Apostille</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Apostille Birth Certificate</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Apostille California</a>
+                <a class="" style="font-size: 12pt" href="javascript:void(0)">Apostille Diploma</a>
+                <a class="" style="font-size: 9pt;" href="javascript:void(0)">Apostille FBI</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Apostille FBI Background Check</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Apostille Florida</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">apostille transcript</a>
+                <a class="" style="font-size: 9pt;" href="javascript:void(0)">Birth Certificate Apostille</a>
+                <a class="" style="font-size: 9pt;" href="javascript:void(0)">California Apostille</a>
+                <a class="" style="font-size: 9pt;" href="javascript:void(0)">China Embassy Legalization</a>
+                <a class="" style="font-size: 12pt;" href="javascript:void(0)">Diploma Apostille</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Diploma Attestation</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">District of Columbia Apostille</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Document Attestation</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Document Certification</a>
+                <a class="" style="font-size: 13pt;" href="javascript:void(0)">Document Legalization</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Driver License Apostille</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Egypt Consulate Legalization</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Egypt Embassy Legalization</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">Embassy Attestation</a>
+                <a class="" style="font-size: 16pt;" href="javascript:void(0)">FBI Apostille</a>
+                <a class="" style="font-size: 8pt;" href="javascript:void(0)">FBI criminal background check apostille</a>
+                <a class="" style="font-size: 10pt;" href="javascript:void(0)">Florida Apostille</a>
+                <a class="" style="font-size: 9pt;" href="javascript:void(0)">Kuwait Embassy Legalization</a>
+                @*<a class="" style="font-size: 9pt;" href="javascript:void(0)">Legalization</a>
+                    <a class="" style="font-size: 8pt;" href="javascript:void(0)">Los Angeles Apostille</a>
+                    <a class="" style="font-size: 9pt;" href="javascript:void(0)">Marriage Certificate Apostille</a>
+                    <a class="" style="font-size: 8pt;" href="javascript:void(0)">National US Arab Chamber of Commerce</a>
+                    <a class="" style="font-size: 9pt;" href="javascript:void(0)">New York Apostille</a>
+                    <a class="" style="font-size: 8pt;" href="javascript:void(0)">Passport Apostille</a>
+                    <a class="" style="font-size: 8pt;" href="javascript:void(0)">power of attorney apostille</a>
+                    <a class="" style="font-size: 8pt;" href="javascript:void(0)">Qatar Consulate Legalization</a>
+                    <a class="" style="font-size: 8pt;" href="javascript:void(0)">Qatar Embassy Legalization</a>
+                    <a class="" style="font-size: 9pt;" href="javascript:void(0)">Single Status Apostille</a>
+                    <a class="" style="font-size: 8pt;" href="javascript:void(0)">Texas Apostille</a>
+                    <a class="" style="font-size: 12pt;" href="javascript:void(0)">U.S. Department of State Apostille</a>
+                    <a class="" style="font-size: 8pt;" href="javascript:void(0)">UAE Legalization</a>
+                    <a class="" style="font-size: 9pt;" href="javascript:void(0)">USA Apostille</a>
+                    <a class="" style="font-size: 8pt;" href="javascript:void(0)">US Apostille</a>
+                    <a class="" style="font-size: 13pt;" href="javascript:void(0)">US Department of State Apostille</a>
+                    <a class="" style="font-size: 9pt;" href="javascript:void(0)">US Department of State Certification</a>
+                    <a class="" style="font-size: 9pt;" href="javascript:void(0)">US Federal Apostille</a>
+                    <a class="" style="font-size: 8pt;" href="javascript:void(0)">US Legalization</a>
+                    <a class="" style="font-size: 15pt;" href="javascript:void(0)">Washington DC Apostille</a>*@
+            </div>
+        </div>
+        <!-- Paypal section-->
+        <div class="sidebar-section">
+            <h5 class="font-weight-bold text-uppercase">Pay us with Paypal</h5>
+            <div class="d-flex align-items-center">
+                <img src="~/Assets/img/paypal.png" width="40" height="40" class="img-contain mr-2" />
+                <p class="text-muted small mb-0">
+                    Please contact us for a price quote before paying us through Paypal.com
+                </p>
+            </div>
+        </div>
+        <!-- Credit Cards section-->
+        <div class="sidebar-section">
+            <p class="text-muted small mb-0 text-center">
+                We accept all four major credit cards! We also accept cash, personal and business checks (Chase bank only), money orders, cashier's check, debit cards, and Paypal.com. Invoicing is also available for select clients only.
+            </p>
+            <img src="~/Assets/img/credit-cards.png" class="w-100" />
+        </div>
+        <!-- Service section-->
+        <div class="sidebar-section">
+            <h5 class="font-weight-bold text-uppercase">SERVING ALL 50 U.S. STATES</h5>
+            <div class="text-center">
+                <img src="~/Assets/img/United-States-Apostille-Services.jpg" width="200" />
+                <p class="text-muted small mb-0">
+                    We provide Apostille service for all 50 U.S. States including the U.S. Department of State in Washington, D.C. and select Embassy / Consulate Legalization Services in Washington, D.C., Los Angeles, New York, Texas, Illinois, and Florida.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

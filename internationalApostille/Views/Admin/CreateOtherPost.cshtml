@@ -1,0 +1,180 @@
+﻿@model internationalApostille.Models.BlogPost
+
+@{
+    ViewBag.Title = "Create Other Post";
+    Layout = "~/Views/Shared/Admin/_layout.cshtml";
+}
+
+
+
+<!-- begin:: Subheader -->
+<div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-container ">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">
+                Create Other Post
+            </h3>
+            <div class="kt-subheader__breadcrumbs">
+                <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    Admin
+                </a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    Other Posts
+                </a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    Add Other Post
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end:: Subheader -->
+
+
+@using (Html.BeginForm("CreateOtherPost", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+
+    <!-- begin:: Content -->
+    <div class="kt-container kt-grid__item kt-grid__item--fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <!--begin::Portlet-->
+                <div class="kt-portlet">
+                    <!--begin::Form-->
+                    <div class="kt-portlet__body">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" name="title" id="kt_maxlength_4" maxlength="255" placeholder="Enter Title" required>
+                        </div>
+
+                        <input id="Description" name="Description" value="" hidden="hidden" required>
+
+                        <div class="form-group">
+                            <label>Meta Description</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="metaDescription" id="kt_maxlength_4" maxlength="250" placeholder="Enter Meta Description" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Meta Keywords</label>
+                            <input class="form-control"  name='metaKeywords' placeholder='Meta Keywords...'  autofocus data-blacklist='.NET,PHP' required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <div class="summernote" id="kt_summernote_1"></div>
+                        </div>
+                    </div>
+                    <!--end::Form-->
+                </div>
+                <!--end::Portlet-->
+            </div>
+            <div class="col-md-4">
+                <!--begin::Portlet-->
+                <div class="kt-portlet">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                Publish
+                            </h3>
+                        </div>
+                    </div>
+                    <!--begin::Form-->
+                    <div class="kt-portlet__body">
+                        <div class="form-group row align-items-lg-center">
+                            <h6 class="col-lg-4 mb-0">
+                                <i class="flaticon-calendar-with-a-clock-time-tools mr-2"></i>
+                                <span> Published on : </span>
+                            </h6>
+                            <div class="input-group date col-lg-8">
+                                <input type="text" class="form-control" name="PublishedDate" placeholder="Select date and time" id="PublishedDate" value="04 March 2020 05:35 AM" required />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="la la-calendar glyphicon-th"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-lg-center">
+                            <h6 class="col-lg-4 mb-0">
+                                <i class="flaticon-eye mr-2"></i>
+                                <span> Visibility : </span>
+                            </h6>
+                            <div class="col-lg-8">
+                                <select class="form-control kt-selectpicker" name="Visibility" required>
+                                    <option selected>Public</option>
+                                    <option>only Users</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-lg-center">
+                            <h6 class="col-lg-4 mb-0">
+                                <i class="fa fa-link mr-2"></i>
+                                <span> Permalink : </span>
+                            </h6>
+                            <div class="col-lg-8">
+                                <input type="text" id="permaLink" name="url" class="form-control" value="post-title" required />
+                                <p class="text-muted small">
+                                    <span>https://apostille.com/</span>
+                                    <span id="url" class="text-primary">post-title</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__foot">
+                        <div class="kt-form__actions d-flex flex-sm-wrap justify-content-between">
+                            <button type="reset" class="btn text-danger">Move To trash</button>
+                            <input type="submit" id="SubmitBlogPost" value="Publish" class="btn btn-brand" />
+                        </div>
+                    </div>
+                    <!--end::Form-->
+                </div>
+                <!--end::Portlet-->
+                
+            </div>
+        </div>
+    </div>
+    <!-- end:: Content -->
+
+
+}
+
+@section scripts{
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/summernote.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/bootstrap-datetimepicker.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/bootstrap-select.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/select2.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/bootstrap-maxlength.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/dropzone.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/tagify.js"></script>
+    <script>
+        $(function () {
+            $('#createBlogpost').closest('.kt-menu__item--rel').addClass('kt-menu__item--here');
+            $('#createBlogpost').closest('.kt-menu__item').addClass('kt-menu__item--here');
+            console.clear();
+
+            $('#permaLink').keyup(function (e) {
+                $('#url').text($(this).val())
+
+            }).keypress(function (e) {
+                if (e.which === 32) {
+                    return false;
+                }
+            })
+
+        })
+
+
+
+        $(".summernote").on("summernote.change", function (e) {   // callback as jquery custom event
+            $("#Description").val($('.summernote').summernote('code'));
+        });
+    </script>
+}

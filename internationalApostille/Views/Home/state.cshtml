@@ -1,0 +1,108 @@
+﻿@model internationalApostille.Models.State
+@using internationalApostille.Models;
+@{
+    var db = new USDBEntities();
+    var stateDetails = db.StateOffices.Where(a => a.StateId == Model.StateID).FirstOrDefault();
+}
+@{
+    ViewBag.Title = @Model.StateName + " Apostille, Apostille " + @Model.StateName + ", " + @Model.StateName + " Secretary of State";
+
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- Breadcrumb -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a href="/" class="font-weight-bold">Home</a>
+        </span>
+        <span>
+            <span>@Html.DisplayFor(model => model.StateName)</span>
+        </span>
+    </div>
+</div>
+<!-- Body -->
+<div class="container">
+    <div class="row mb-5" id="main-content">
+        <div class="col-md-9 content" id="content">
+            <div class="blog-list">
+                <article class="blog-card mb-5">
+
+                    <h1 class="entry-title">
+                        <a href="javascript:void(0)">@Html.DisplayFor(model => model.StateName)</a>
+                    </h1>
+                    <div class="entry-content">
+                        @{string imgSRC = "/Uploads/flags/" + @Model.StateName.Replace(" ", "-") + "-Apostille.png"; }
+                        <p><img class="alignright size-full wp-image-244" title="@Html.DisplayFor(model => model.StateName) Apostille" src="@imgSRC" alt="" width="155" height="93">Do you need an Apostille on a document originating from the State of @Html.DisplayFor(model => model.StateName)? If you plan to live, work, get married-in, or conduct business in another country, you will be asked to have your documents authenticated.</p>
+                        <p>We provide <em>FAST</em> document authentication service from the @Html.DisplayFor(model => model.StateName) Secretary of State to be used in another country who is a <a href="/hague-apostille-member-countries/" target="_blank" rel="noopener">member of the Hague Apostille Convention</a>.</p>
+                        
+                            <p>
+                                <span style="color: #0000ff;"><strong>Processing Time</strong></span>:
+                                <strong>
+                                    @Html.DisplayFor(model => model.AroundTime) Business Days (estimated) + Overnight Next-Day Delivery*<br>
+                                    <span style="color: #0000ff;">@Html.DisplayFor(model => model.StateName) Fees Apostille:</span> @Html.DisplayFor(model => model.FeeApostille) $<br>
+                                    <span style="color: #0000ff;">Order Form</span>: <a href="#" style="color: #b22332;">Order Now !</a><br><br>
+
+                                    <span style="color: #0000ff;">Rates</span>: <a href="/rates/" target="_blank" rel="noopener">Click here</a><br>
+                                    <span style="color: #0000ff;">Example</span>: <a href="/@Html.DisplayFor(model => model.StateName)-apostille-example/">@Html.DisplayFor(model => model.StateName) Apostille Example</a><br>
+
+
+                                    </a>Documents from @Html.DisplayFor(model => model.StateName)&nbsp;are processed through our Denver, @Html.DisplayFor(model => model.StateName)&nbsp;office.<br>
+
+                                    <span style="color: #008000;">@stateDetails.Phone</span> Toll Free or <span style="color: #008000;">@stateDetails.Phone2</span>&nbsp;(@Html.DisplayFor(model => model.StateName) Office)<br>
+
+                                    <span style="color: #008000;"><span style="color: #000000;">Questions? <a href="mailto:@stateDetails.Email">@stateDetails.Email</a></span></span><a href="/order-form/">
+                                        <br>
+                                    </a>
+                                </strong>
+                            </p>
+                        <p><strong>We provide Apostille service&nbsp;for all&nbsp;64 counties in @Html.DisplayFor(model => model.StateName)</strong>.&nbsp; These counties include: Adams, Alamosa, Arapahoe, Archuleta, Baca, Bent, Boulder, Broomfield, Chaffee, Cheyenne, Clear Creek, Conejos, Costilla, Crowley, Custer, Delta, Denver, Dolores, Douglas, Eagle, <a href="/el-paso-apostille-@Html.DisplayFor(model => model.StateName)/">El Paso</a>, Elbert, Fremont, Garfield, Gilpin, Grand, Gunnison, Hinsdale, Huerfano, Jackson, Jefferson, Kiowa, Kit Carson, La Plata, Lake, Larimer, Las Animas, Lincoln, Logan, Mesa, Mineral, Moffat, Montezuma, Montrose, Morgan, Otero, Ouray, Park, Phillips, Pitkin, Prowers, Pueblo, Rio Blanco, Rio Grande, Routt, Saguache, San Juan, San Miguel, Sedgwick, Summit, Teller, Washington, Weld, and&nbsp;Yuma.</p>
+                        <p>The Most populous&nbsp;Counties/Cities in&nbsp;@Html.DisplayFor(model => model.StateName) are: <a href="/denver-apostille-@Html.DisplayFor(model => model.StateName)/">Denver</a>, @Html.DisplayFor(model => model.StateName) Springs, and Aurora.</p>
+                        <p><iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.560543238861!2d-104.9935574838192!3d39.7495212794483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c78da287122a9%3A0x1f7a76af26546f63!2sDenver+Place%2C+999+18th+St+%233000%2C+Denver%2C+CO+80202!5e0!3m2!1sen!2sus!4v1525569674135" allowfullscreen="allowfullscreen" width="100%" height="450" frameborder="0"></iframe></p>
+                        <ul>
+                            <li>Birth Certificates</li>
+                            <li>Death Certificates</li>
+                            <li>Marriage Certificates</li>
+                            <li>Divorce Decree</li>
+                            <li>Criminal Background Checks (Police, Sheriff, Department of Justice)</li>
+                            <li>Diploma &amp; Transcripts (Middle, High School, College, University)</li>
+                            <li>Corporate Documents (Articles of Incorporation, Certificate of Free Sale, etc..)</li>
+                            <li>Powers of Attorney</li>
+                            <li>Affidavits</li>
+                            <li>Copy of Driver License or Passport</li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        <p>Please note that some of the documents listed above will require notarization prior to being eligible for a @Html.DisplayFor(model => model.StateName) Apostille. Documents sent to countries who are NOT members of the Hague Apostille Convention will receive a Certification. Have a question? Please call or <a href="/contact-us/" target="_blank" rel="noopener">contact us</a> now. We can ship your document anywhere in the world. Additional shipping rates apply.</p>
+                        <p>Apostilles can be complicated. Don’t leave this process to untrained employees or non-professionals who do not fully understand the&nbsp;@Html.DisplayFor(model => model.StateName) Apostille process and the unique requirements of certain countries. Your paperwork could be rejected costing you time and money. Don’t let this happen to you!</p>
+                        <p><a href="/order-form/"><img class="alignleft size-full wp-image-215" src="/wp-content/uploads/2013/10/International-Apostille-Order-Form-PDF-Small.jpg" alt="International Apostille Order Form PDF Small" width="126" height="143"></a>Click to download our <a href="/order-form/">International Apostille Order Form</a>. Our Apostille service is fast, convenient, and saves you time and money.</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p style="text-align: center;"><a href="/united-states-apostille/"><img class="aligncenter size-full wp-image-218" title="United States Apostille" src="/wp-content/uploads/2013/10/United-States-Apostille.jpg" alt="" srcset="/wp-content/uploads/2013/10/United-States-Apostille.jpg 341w, /wp-content/uploads/2013/10/United-States-Apostille-300x197.jpg 300w" sizes="(max-width: 341px) 100vw, 341px" width="341" height="224"></a></p>
+                        <p style="text-align: center;">
+                            We can process documents from all 50 States including the <a href="/federal-government-apostille/" target="_blank" rel="noopener">U.S. Department of State</a>,<br>
+                            the Secretary of the District of Columbia, and all <a href="/embassy-consul-legalization/" target="_blank" rel="noopener">Consul / Embassy offices</a> in Washington, DC.
+                        </p>
+                        <p style="text-align: center;">*Excluding Saturday, Sunday, Major Holidays, and International Delivery.&nbsp; Our processing time is a good-faith estimate and may change depending on the volume of work received at our offices&nbsp;and the resources available at the @Html.DisplayFor(model => model.StateName)&nbsp;State office to complete your documents.&nbsp; The number of days does not take&nbsp;into&nbsp;consideration the FedEx shipping to and from the State and the FedEx shipping back to your return address.&nbsp; We recommend that you do not book any appointments or make any reservations until your documents are complete.&nbsp; There is an additional shipping fee for international delivery.&nbsp; Thank you.</p>
+                        <p style="text-align: center;"><a href="/state-of-@Html.DisplayFor(model => model.StateName)-apostille/">State of @Html.DisplayFor(model => model.StateName) Apostille</a></p>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <!-- Side bar -->
+            @Html.Partial("Components/_Sidebar")
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Assets/js/jquery.sticky-sidebar.min.js"></script>
+    <script src="~/Assets/js/pages/sidebar.js"></script>
+    <script>
+        $("#blogPostId").val($("#PostID").val());
+    </script>
+}

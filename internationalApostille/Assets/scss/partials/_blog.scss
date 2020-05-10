@@ -1,0 +1,75 @@
+﻿
+.blog-list {
+    .meta-data {
+        padding: 6px 20px 4px;
+        background-color: #eee;
+        color: #aaa;
+        font-size: 14px;
+        line-height: 35px;
+        margin-bottom: 24px;
+
+        .meta-data__separator {
+            margin: 0 10px;
+            color: #ddd;
+            font-size: 28px;
+            vertical-align: middle;
+        }
+
+        a {
+            color: #aaa;
+        }
+    }
+
+    .entry-title {
+        font-size: 34px;
+        color: #444;
+        margin-bottom: 19px;
+        line-height: 1.2;
+        font-family: source sans pro,Helvetica,Arial,sans-serif;
+        font-weight: 900;
+
+        a {
+            color: #444444;
+        }
+    }
+
+    .entry-content {
+        color: #aaaaaa;
+    }
+}
+
+.tag-wrapper {
+    a {
+        color: lighten($primary,20);
+        font-weight: 500;
+    }
+}
+
+.sidebar {
+    will-change: min-height;
+}
+
+.sidebar__inner {
+    transform: translate(0, 0); /* For browsers don't support translate3d. */
+    transform: translate3d(0, 0, 0);
+    will-change: position, transform;
+}
+
+.posts {
+    padding-left: 25px;
+
+    a {
+        color: #444;
+        display: block;
+        padding: 5px 0;
+    }
+}
+
+.sidebar-section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid #eee;
+    }
+}

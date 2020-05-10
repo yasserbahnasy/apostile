@@ -1,0 +1,61 @@
+﻿<div class="comment-wrapper">
+    <h5 class="mb-5 text-line-right">
+        <span>Leave a Reply</span>
+    </h5>
+
+    
+    @using (Html.BeginForm("NewComment", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-group">
+            <div class="row">
+                <input type="hidden" name="blogPostId" id="blogPostId" value="" />
+                <div class="col-md-6">
+                    <label class="small font-weight-bold">Full name</label>
+                    <input name="fullname" id="fullname" type="text" class="form-control" required />
+                </div>
+                <div class="col-md-6">
+                    <label class="small font-weight-bold">Email</label>
+                    <input name="email" type="email" class="form-control" required />
+                </div>
+            </div>
+            <textarea name="CommentText" id="CommentText" class="form-control" style="height:150px" placeholder="Enter Your Comment here ..."></textarea>
+            <div class="mb-5 text-right">
+
+                <input type="submit" value="Post Comment" class="btn btn-success">
+            </div>
+        </div>
+    }
+        <ul class="timeline">
+            @using internationalApostille.Models;
+            @model internationalApostille.Models.BlogPost
+            @{
+                int postid = Model.id;
+                var db = new apostilleDBEntities();
+
+                var CommentsDetails = db.Comments.Where(a => a.blogPostId == postid).ToList();
+
+                foreach (var item in CommentsDetails)
+                {
+                    <li class="timeline-item">
+                        <div class="timeline-info">
+                            <span>@String.Format("{0:MMMM dd, yyyy}", item.date)</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">@item.fullname</h4>
+                            @{
+                                string mail = "mailto:" + @item.Email;
+                            }
+                            <a class="small mb-3 d-block" href="@mail">@item.Email</a>
+                            <p class="text-muted">
+                                @item.CommentText
+                            </p>
+                        </div>
+                    </li>
+                }
+            }
+        </ul>
+</div>
+

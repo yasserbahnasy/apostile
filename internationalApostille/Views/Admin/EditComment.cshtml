@@ -1,0 +1,90 @@
+﻿@model internationalApostille.Models.Comment
+
+@{
+    ViewBag.Title = "EditComment";
+    Layout = "~/Views/Shared/Admin/_layout.cshtml";
+}
+
+
+
+<!-- begin:: Subheader -->
+<div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-container ">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">
+                Edit User
+            </h3>
+            <div class="kt-subheader__breadcrumbs">
+                <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    Admin
+                </a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    Users
+                </a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    Edit User
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end:: Subheader -->
+<!-- begin:: Content -->
+<div class="kt-container  kt-grid__item kt-grid__item--fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <!--begin::Portlet-->
+            <div class="kt-portlet">
+                <!--begin::Form-->
+                <form action="/Admin/EditComment" method="post">
+                    <div class="kt-portlet__body">
+                        @if (@ViewBag.Message != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.Message
+                            </div>
+                        }
+                        @Html.HiddenFor(model => model.id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.HiddenFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.fullname, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.fullname, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.fullname, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input class="form-control text-box single-line" type="Email" id="Email" name="Email" value="@Model.Email">
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CommentText, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.CommentText, htmlAttributes: new { @class = "form-control" })
+
+                                @Html.ValidationMessageFor(model => model.CommentText, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="kt-form__actions d-flex flex-sm-wrap justify-content-between">
+                            <input type="submit" id="SubmitBlogPost" value="Save" class="btn btn-brand">
+                        </div>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>
+<!-- end:: Content -->

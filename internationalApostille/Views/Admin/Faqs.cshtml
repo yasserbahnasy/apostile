@@ -1,0 +1,239 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<internationalApostille.Models.FAQ>
+
+@{
+    ViewBag.Title = "Faqs";
+    Layout = "~/Views/Shared/Admin/_layout.cshtml";
+}
+
+<!-- begin:: Subheader -->
+<div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-container d-md-flex align-items-md-center justify-content-md-between">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">
+                FAQS
+            </h3>
+            <div class="kt-subheader__breadcrumbs">
+                <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    Admin
+                </a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    FAQs
+                </a>
+            </div>
+        </div>
+        <div class="kt-subheader__toolbar">
+            <div class="kt-subheader__wrapper">
+                <a href="#" class="btn kt-subheader__btn-secondary" data-toggle="modal" data-target="#addModel">
+                    <i class="flaticon2-plus mr-2"></i>
+                    Add New
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- end:: Subheader -->
+<!-- begin:: Content -->
+<div class="kt-container  kt-grid__item kt-grid__item--fluid">
+    @foreach (var item in Model)
+
+    {
+        <!--begin:: Portlet-->
+        <div class="kt-portlet">
+            <div class="kt-portlet__body">
+                <div class="kt-widget kt-widget--user-profile-3">
+                    <div class="kt-widget__top">
+                        <div class="kt-widget__content">
+                            <div class="kt-widget__head">
+                                <a href="#" class="kt-widget__username">
+                                    @Html.DisplayFor(modelItem => item.Question)
+                                </a>
+
+                                <div class="kt-widget__action">
+                                    <button type="button" class="btn btn-brand btn-sm btn-upper" data-toggle="modal" data-id="@Html.DisplayFor(modelItem => item.id)" data-Question="@Html.DisplayFor(modelItem => item.Question)" data-Type="@Html.DisplayFor(modelItem => item.Type)" data-Answer="@Html.DisplayFor(modelItem => item.Answer)" onclick="editFAQ(this)" data-target="#editModal">Edit</button>&nbsp;
+                                    <button type="button" class="btn btn-danger btn-sm btn-upper" data-id="@Html.DisplayFor(modelItem => item.id)" data-toggle="modal" onclick="deleteFAQ(this)" data-target="#deleteModal">Delete</button>
+                                </div>
+                            </div>
+
+                            <div class="kt-widget__subhead">
+                                <a href="#"><i class="flaticon-layer"></i> @Html.DisplayFor(modelItem => item.Type)</a>
+                            </div>
+
+                            <div class="kt-widget__info">
+                                <div class="kt-widget__desc">
+                                    @Html.DisplayFor(modelItem => item.Answer)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Portlet-->
+    }
+    <!--Begin::Pagination-->
+    <div class="row">
+        <div class="col-xl-12">
+            <!--begin:: Components/Pagination/Default-->
+            <div class="kt-portlet">
+                <div class="kt-portlet__body">
+                    <!--begin: Pagination-->
+                    <div class="kt-pagination kt-pagination--brand">
+                        <nav>
+                            @Html.PagedListPager(Model, page => Url.Action("faqs", new { page }))
+                        </nav>
+                    </div>
+                    <!--end: Pagination-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: Content -->
+
+    @section modals {
+        <!--begin::Modal-->
+        <div class="modal fade" id="addModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add FAQ</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/Admin/AddFAQ" method="post">
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <lable>Question</lable>
+                                    <input type="text" id="Question" name="Question" class="form-control" required />
+                                </div>
+                                <div class="col-md-4">
+                                    <lable>Type</lable>
+                                    <select id="Type" name="Type" class="form-control" required>
+                                        <option value="Frequently Asked Questions">Frequently Asked Questions</option>
+                                        <option value="Profile">Profile</option>
+                                        <option value="Account">Account</option>
+                                        <option value="Favorites">Favorites</option>
+                                        <option value="Transactions">Transactions</option>
+                                        <option value="General help">General help</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <lable>Answer</lable>
+                                    <textarea class="form-control" id="Answer" name="Answer" placeholder="Type an Answer ... " style="height:220px" required></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" value="Add FAQ" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--end::Modal-->
+        <!--begin::Modal-->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit FAQ</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/Admin/EditFAQ" method="post">
+                        <div class="modal-body">
+
+                            <input type="hidden" id="idData" name="id" value="" />
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <lable>Question</lable>
+                                    <input type="text" class="form-control" id="QuestionData" name="Question" placeholder="Type an Question ... " required />
+                                </div>
+                                <div class="col-md-4">
+                                    <lable>Type</lable>
+                                    <input type="text" class="form-control" id="TypeData" name="Type" placeholder="Type an Type ... " required  readonly="readonly"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <lable>Answer</lable>
+                                    <textarea class="form-control" placeholder="Type an Answer ... " style="height:220px" id="AnswerData" name="Answer" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" value="Save changes" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--end::Modal-->
+        <!--begin::Modal-->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete FAQ</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/Admin/DeleteFAQ" method="post">
+
+                        <div class="modal-body">
+                            <input type="hidden" name="id" id="dataID" value="" />
+                            <p>
+                                Are you sure you want to delete this  FAQ ?
+                            </p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <input type="submit" value="Delete FAQ" class="btn btn-danger">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--end::Modal-->
+    }
+
+    @section scripts {
+        <script>
+            $(function () {
+                $('#faqAdminLink').closest('.kt-menu__item--rel').addClass('kt-menu__item--here');
+            })
+        </script>
+
+        <script>
+            function editFAQ(item) {
+
+                var id = $(item).data('id');
+                var Questions = $(item).data('question');
+                var Type = $(item).data('type');
+                var Answer = $(item).data('answer');
+
+                $("#idData").val(id);
+                $("#QuestionData").val(Questions);
+                $("#TypeData").val(Type);
+                $("#AnswerData").text(Answer);
+            }
+
+            function deleteFAQ(item) {
+
+                var id = $(item).data('id');
+
+                $("#dataID").val(id);
+            }
+        </script>
+    }

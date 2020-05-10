@@ -1,0 +1,42 @@
+﻿@using internationalApostille.Models;
+<div class="container">
+    <div class="countries-list py-5">
+        <div class="text-center">
+            <h3 class="text-uppercase font-weight-bold mb-5">States Fees</h3>
+        </div>
+        <!-- Wrapper auto fill from js -->
+        <div class="row justify-content-center">
+
+            @{
+                var db = new USDBEntities();
+                var StatesDetails = db.States.Where(a=>a.IsState).ToList();
+            }
+            @foreach (var item in StatesDetails)
+            {
+                var fees = @item.FeeApostille + "$";
+            <div class="col-xl-2 col-md-3 col-sm-4 col-6 country-item">
+                <a href="@item.StateName.Replace(" ", "-")-apostille" class="d-flex align-items-center justify-content-between px-1">
+                    <article>
+                        @{string imgSRC = "/Uploads/state/" + @item.StateName.Replace(" ", "-") + ".png"; }
+                        <img class="flag" src="@imgSRC"><span class="small text-secondary text-capitalize">@item.StateName</span>
+                    </article>
+                </a>
+                <a href="@item.StateName.Replace(" ", "-")-apostille" class="d-flex align-items-center justify-content-between px-1">
+
+                    <span class="price text-accent small">@fees</span>
+                    <span class="price text-accent small">
+                        @if (@item.AroundTime == 0)
+                        {@item.AroundTimeText }
+                        else
+                        {
+                            var d = item.AroundTime + " Business Days";
+                            @d
+
+                        }
+                                    </span>
+                </a>
+            </div>
+            }
+            </div>
+    </div>
+</div>

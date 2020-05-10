@@ -1,0 +1,20 @@
+﻿<div class="kt-grid kt-grid--hor kt-grid--root">
+    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
+            <!-- begin:: Header -->
+            @Html.Partial("Admin/_Header")
+
+            <!-- end:: Header -->
+            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-grid--stretch">
+                <div class="kt-container kt-body  kt-grid kt-grid--ver" id="kt_body">
+                    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <!-- begin:: Footer -->
+            @Html.Partial("Admin/_Footer")
+            <!-- end:: Footer -->
+        </div>
+    </div>
+</div>

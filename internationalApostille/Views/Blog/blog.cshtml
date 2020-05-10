@@ -1,0 +1,89 @@
+﻿@model internationalApostille.Models.BlogPost
+
+@{
+    ViewBag.Title = @Model.title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Title -->
+<div class="main-title" style="">
+    <div class="container">
+        <span class="main-title__primary d-block">Blogs</span>
+        <span class="main-title__secondary d-block">@Html.DisplayFor(modelItem => modelItem.title)</span>
+    </div>
+</div>
+<!-- Breadcrumb -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a href="/" class="font-weight-bold">Home</a>
+        </span>
+        <span>
+            <a href="/blog" class="font-weight-bold">Blog</a>
+        </span>
+        <span>
+            <a href="/blog" class="font-weight-bold">@Html.DisplayFor(modelItem => modelItem.Category.name)</a>
+        </span>
+        <span>
+            <span>@Html.DisplayFor(modelItem => modelItem.title)</span>
+        </span>
+    </div>
+</div>
+<!-- Body -->
+<div class="container">
+    <div class="row mb-5" id="main-content">
+        <div class="col-md-9 content" id="content">
+            <div class="blog-list">
+                <input type="hidden" id="PostID" value="@Model.id" />
+                <article class="blog-card mb-5">
+                    <a class="d-block">
+                        <img class="blog-card-img w-100" src="~/Uploads/@Html.DisplayFor(modelItem => modelItem.FeaturedImage)" />
+                    </a>
+                    <div class="meta-data">
+                        <time class="meta-data-date">@String.Format("{0:dd MMMM yyyy}", Model.PublishedDate)</time>
+                        <span class="meta-data-separator">/</span>
+                        <span class="author">
+                            <span class="meta-data-author">
+                                By
+                                <span class="fn">@Html.DisplayFor(modelItem => modelItem.User.fullname)</span>
+                            </span>
+                        </span>
+                        <span class="meta-data-separator">/</span>
+                        <span class="meta-data__categories">
+                            <a href="javascript:void(0)">@Html.DisplayFor(modelItem => modelItem.Category.name)</a>
+                        </span>
+                    </div>
+                    <h1 class="entry-title">
+                        <a href="javascript:void(0)">@Html.DisplayFor(modelItem => modelItem.title)</a>
+                    </h1>
+                    <div class="entry-content">
+                        <div class="entry-content">
+                            @{
+                                @Html.Raw(Model.Description);
+                            }
+                        </div>
+                    </div>
+                    <span>Tags :</span> @Html.DisplayFor(modelItem => modelItem.tags)
+                </article>
+                @Html.Partial("Components/_Comment")
+            </div>
+        </div>
+        <div class="col-md-3">
+            <!-- Side bar -->
+            @Html.Partial("Components/_Sidebar")
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/Assets/js/jquery.sticky-sidebar.min.js"></script>
+    <script src="~/Assets/js/pages/sidebar.js"></script>
+    <script>
+        $("#blogPostId").val($("#PostID").val());
+    </script>
+}
+
+
+
+

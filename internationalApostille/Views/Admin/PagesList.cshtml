@@ -1,0 +1,149 @@
+﻿@model IEnumerable<internationalApostille.Models.PagesPost>
+
+@{
+    ViewBag.Title = "Pages List";
+    Layout = "~/Views/Shared/Admin/_layout.cshtml";
+}
+
+
+
+<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-grid--stretch">
+    <div class="kt-container kt-body  kt-grid kt-grid--ver" id="kt_body">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+
+
+
+            <!-- begin:: Subheader -->
+            <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+                <div class="kt-container ">
+                    <div class="kt-subheader__main">
+                        <h3 class="kt-subheader__title">
+                            Pages
+                        </h3>
+                        <div class="kt-subheader__breadcrumbs">
+                            <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                            <span class="kt-subheader__breadcrumbs-separator"></span>
+                            <a href="" class="kt-subheader__breadcrumbs-link">
+                                Admin
+                            </a>
+                            <span class="kt-subheader__breadcrumbs-separator"></span>
+                            <a href="" class="kt-subheader__breadcrumbs-link">
+                                Pages
+                            </a>
+                            <span class="kt-subheader__breadcrumbs-separator"></span>
+                            <a href="" class="kt-subheader__breadcrumbs-link">
+                                Pages list
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end:: Subheader -->
+            <!-- begin:: Content -->
+            <div class="kt-container  kt-grid__item kt-grid__item--fluid">
+                <div class="kt-portlet kt-portlet--mobile">
+                    <div class="kt-portlet__head kt-portlet__head--lg">
+                        <div class="kt-portlet__head-label">
+                            <span class="kt-portlet__head-icon">
+                                <i class="kt-font-brand flaticon2-line-chart"></i>
+                            </span>
+                            <h3 class="kt-portlet__head-title">
+                                Pages List
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="kt-portlet__body">
+                        <!--begin: Search Form -->
+                        <div class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
+                            <div class="row align-items-center">
+                                <div class="col-xl-8 order-2 order-xl-1">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                                            <div class="kt-input-icon kt-input-icon--left">
+                                                <input type="text" class="form-control" placeholder="Search..." id="generalSearch">
+                                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                                                    <span><i class="la la-search"></i></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                                            <div class="kt-form__group kt-form__group--inline">
+                                                <div class="kt-form__label">
+                                                    <label>Page Type:</label>
+                                                </div>
+                                                <div class="kt-form__control">
+                                                    <select class="form-control bootstrap-select" id="kt_form_status">
+                                                        <option value="0">Country</option>
+                                                        <option value="1">State</option>
+                                                        <option value="2">Page</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                                            <div class="kt-form__group kt-form__group--inline">
+                                                <div class="kt-form__label">
+                                                    <label>Visibility:</label>
+                                                </div>
+                                                <div class="kt-form__control">
+                                                    <select class="form-control bootstrap-select" id="kt_form_status">
+                                                        <option value="0">Public</option>
+                                                        <option value="1">only Users</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end: Search Form -->
+                    </div>
+                    <div class="kt-portlet__body kt-portlet__body--fit">
+                        <!--begin: Datatable -->
+                        <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded" id="local_data" style="">
+
+                            <table class="kt-datatable__table" style="display: block; min-height: 500px;">
+                                <thead class="kt-datatable__head">
+                                    <tr class="kt-datatable__row" style="left: 0px;">
+                                        <th class="kt-datatable__cell kt-datatable__cell--sort"><span style="width: 136px;">@Html.DisplayNameFor(model => model.id)</span></th>
+                                        <th class="kt-datatable__cell kt-datatable__cell--sort"><span style="width: 136px;">@Html.DisplayNameFor(model => model.title)</span></th>
+                                        <th class="kt-datatable__cell kt-datatable__cell--sort"><span style="width: 136px;">@Html.DisplayNameFor(model => model.PublishedDate)</span></th>
+                                        <th class="kt-datatable__cell kt-datatable__cell--sort"><span style="width: 136px;">@Html.DisplayNameFor(model => model.Visibility)</span></th>
+                                        <th class="kt-datatable__cell kt-datatable__cell--sort"><span style="width: 136px;">Action</span></th>
+
+                                    </tr>
+
+                                </thead>
+                                <tbody class="kt-datatable__body">
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr data-row="0" class="kt-datatable__row" style="left: 0px;">
+                                        <td class="kt-datatable__cell"><span style="width: 136px;"><a href="#">@Html.DisplayFor(modelItem => item.id)</a></span></td>
+                                        <td class="kt-datatable__cell"><span style="width: 136px;" data-field="title"><a href="/@Html.DisplayFor(modelItem => item.url)">@Html.DisplayFor(modelItem => item.title)</a></span></td>
+                                        
+                                        <td class="kt-datatable__cell"><span style="width: 136px;">@Html.DisplayFor(modelItem => item.PublishedDate)</span></td>
+                                        <td class="kt-datatable__cell"><span style="width: 136px;">@if (item.Visibility == "Public") {<span class="kt-badge kt-badge--danger kt-badge--dot"></span> <span class="kt-font-bold kt-font-danger">Public</span> } else {<span class="kt-badge kt-badge--primary kt-badge--dot"></span> <span class="kt-font-bold kt-font-primary">only Users</span> }</span></td>
+                                        <td data-field="Actions" data-autohide-disabled="false" class="kt-datatable__cell">
+                                            <span style="overflow: visible; position: relative; width: 110px;">
+                                                <a href="/Admin/EditPost/@Html.DisplayFor(modelItem => item.id)" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit details"><i class="la la-edit"></i></a>
+                                                <a href="/Admin/DeletePage/@Html.DisplayFor(modelItem => item.id)" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete"><i class="la la-trash"></i></a>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- end:: Content -->
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="672f113871f7431ea6d8e051a2f3fea9" Name="Diagram1">
+        <EntityTypeShape EntityType="USDBModel.Carrier" Width="1.5" PointX="11.25" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.Country" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.CountryImportantLink" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.CountryPaymentMethod" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.County" Width="1.5" PointX="5.25" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.CountyPaymentMethod" Width="1.5" PointX="10.5" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.Document" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.DocumentType" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.Embassy" Width="1.5" PointX="5.25" PointY="50.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.EmbassyCarrier" Width="1.5" PointX="7.5" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.PaymentMethod" Width="1.5" PointX="3.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.Report" Width="1.5" PointX="11" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.ReportType" Width="1.5" PointX="8.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.Request" Width="1.5" PointX="8.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.RequestCountry" Width="1.5" PointX="11" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.State" Width="1.5" PointX="0.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.StateCountryJurisdiction" Width="1.5" PointX="3" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.StateExpeditedFee" Width="1.5" PointX="3" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.StateImportantLink" Width="1.5" PointX="3" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.StateOffice" Width="1.5" PointX="8.25" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.StateOfficeCarrier" Width="1.5" PointX="13.5" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.StatePaymentMethod" Width="1.5" PointX="6" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.TwentyContactInfoData" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.TwentyExtraFedexTicket" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.TwentyFedexStatu" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.TwentyRequest" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.USDepartment" Width="1.5" PointX="5.25" PointY="57.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.USDepartmentImportantLink" Width="1.5" PointX="7.5" PointY="58.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.USDepartmentPaymentMethod" Width="1.5" PointX="7.5" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="USDBModel.ZipCode" Width="1.5" PointX="3" PointY="51.875" IsExpanded="true" />
+        <AssociationConnector Association="USDBModel.FK_EmbassyCarrier_Carrier" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StateCarrier_Carrier" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_CountryImportantLink_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_CountryPaymentMethod_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_Embassy_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StateCountryJurisdiction_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_CountryPaymentMethod_PaymentMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_County_State" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_County_ZipCode" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_CountyPaymentMethod_County" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_CountyPaymentMethod_PaymentMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_Document_DocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_Embassy_ZipCode" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_EmbassyCarrier_Embassy" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StateCountryJurisdiction_Embassy" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StatePaymentMethod_PaymentMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_USDepartmentPaymentMethod_PaymentMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_Report_ReportType" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_RequestCountry_Request" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_ExpeditedFee_State" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StateCountryJurisdiction_State" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StateImportantLink_State" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StateOffice_State" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StatePaymentMethod_State" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_ZipCode_State" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StateOffice_ZipCode" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StateOffice_ZipCode1" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_StateOfficeCarrier_StateOffice" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_TwentyRequest_TwentyContactInfoData" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_TwentyExtraFedexTicket_TwentyFedexStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_TwentyExtraFedexTicket_TwentyFedexStatus1" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_TwentyExtraFedexTicket_TwentyRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_TwentyRequest_TwentyFedexStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_TwentyRequest_TwentyFedexStatus1" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_USDepartment_ZipCode" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_USDepartmentImportantLink_USDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="USDBModel.FK_USDepartmentPaymentMethod_USDepartment" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Html.Partial("_Meta")
+    @* Bootstrap / Plugins *@
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    @* Render Styles for custom pages *@
+    @RenderSection("styles", false)
+    @* Site theme *@
+    <link rel="stylesheet" href="~/Assets/scss/main.min.css" />
+    <link href="~/Assets/css/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="boxed-container">
+
+        @Html.Partial("_Navbar")
+
+        <div class="body-content">
+            @RenderBody()
+            @Html.Partial("_Footer")
+        </div>
+    </div>
+
+
+    @* Js Plugins *@
+    <script src="~/Assets/js/jquery-3.4.1.min.js"></script>
+    <script src="~/Assets/js/popper.min.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    @* Render scripts for custom pages *@
+    @RenderSection("scripts", false)
+    @* Core Script *@
+    <script src="~/Assets/js/main.js"></script>
+    <!-- Start of LiveChat (www.livechatinc.com) code -->
+    <script type="text/javascript">
+        window.__lc = window.__lc || {};
+        window.__lc.license = 11832099;
+        (function () {
+            var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+            lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+        })();
+    </script>
+    <noscript>
+        <a href="https://www.livechatinc.com/chat-with/11832099/" rel="nofollow">Chat with us</a>,
+        powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a>
+    </noscript>
+    <!-- End of LiveChat code -->
+
+</body>
+</html>

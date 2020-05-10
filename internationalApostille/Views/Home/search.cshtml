@@ -1,0 +1,93 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<internationalApostille.Models.BlogPost>
+
+@{
+    ViewBag.Title = "search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- Title -->
+<div class="main-title" style="">
+    <div class="container">
+        <span class="main-title__primary d-block">Search</span>
+    </div>
+</div>
+<!-- Breadcrumb -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a href="/" class="font-weight-bold">Home</a>
+        </span>
+        <span>
+            <span>Search</span>
+        </span>
+    </div>
+</div>
+<!-- Body -->
+<div class="container">
+    <div class="row mb-5" id="main-content">
+        <div class="col-md-9 content" id="content">
+            @{
+                if (Model.Count() != 0)
+                {
+                    <div class="blog-list">
+                        @foreach (var item in Model)
+                        {
+                            <article class="blog-card mb-5">
+                                <h1 class="entry-title">
+                                    <a href="/blog/@Html.DisplayFor(modelItem => item.url)">@Html.DisplayFor(modelItem => item.title)</a>
+                                </h1>
+                                
+                                <div class="meta-data">
+                                    <time class="meta-data-date">@String.Format("{0:dd MMMM yyyy}", item.PublishedDate)</time>
+                                    <span class="meta-data-separator">/</span>
+                                    <span class="author">
+                                        <span class="meta-data-author">
+                                            By
+                                            <span class="fn">@Html.DisplayFor(modelItem => item.User.fullname)</span>
+                                        </span>
+                                    </span>
+                                    <span class="meta-data-separator">/</span>
+                                    <span class="meta-data__categories">
+                                        <a href="/Category/@item.Category.name.Replace(" ","-")">@Html.DisplayFor(modelItem => item.Category.name)</a>
+                                    </span>
+                                </div>
+                                <div class="entry-content">
+                                    <p>
+                                        @Html.Raw(item.Description)
+                                    </p>
+                                    <a class="btn btn-default" href="/blog/@Html.DisplayFor(modelItem => item.url)">Read more</a>
+                                </div>
+                            </article>
+                        }
+                    </div>
+                    <!-- Pagination -->
+                    <nav>
+                        @Html.PagedListPager(Model, page => Url.Action("search", new { page }))
+                    </nav>
+                }
+                else
+                {
+                    <p>Sorry, no content matched your criteria.</p>
+                }
+            }
+
+
+        </div>
+        <div class="col-md-3">
+            <!-- Side bar -->
+            @Html.Partial("Components/_Sidebar")
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts {
+    <script src="~/Assets/js/jquery.sticky-sidebar.min.js"></script>
+    <script src="~/Assets/js/pages/sidebar.js"></script>
+}

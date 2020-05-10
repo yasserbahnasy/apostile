@@ -1,0 +1,58 @@
+﻿@model internationalApostille.Models.PagesPost
+
+@{
+    ViewBag.Title = @Html.DisplayFor(model => model.title);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- Breadcrumb -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a href="/" class="font-weight-bold">Home</a>
+        </span>
+        <span>
+            <span>@Html.DisplayFor(model => model.title)</span>
+        </span>
+    </div>
+</div>
+<!-- Body -->
+<div class="container">
+    <div class="row mb-5" id="main-content">
+        <div class="col-md-9 content" id="content">
+            <div class="blog-list">
+                <input type="hidden" id="PostID" value="@Html.DisplayFor(model => model.id)" />
+                <article class="blog-card mb-5">
+                    
+                    <h1 class="entry-title">
+                        @Html.DisplayFor(model => model.title)
+                    </h1>
+                    <div class="entry-content">
+                        <div class="entry-content">
+                            
+                            @Html.Raw(Model.description)
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+            <div class="col-md-3">
+                <!-- Side bar -->
+                @Html.Partial("Components/_Sidebar")
+            </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Assets/js/jquery.sticky-sidebar.min.js"></script>
+    <script src="~/Assets/js/pages/sidebar.js"></script>
+    <script>
+        $("#blogPostId").val($("#PostID").val());
+    </script>
+}
+
+
+
+

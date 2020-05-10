@@ -1,0 +1,210 @@
+[
+  {
+    "state": "alabama",
+    "price": 24
+  },
+  {
+    "state": "alaska",
+    "price": 30
+  },
+  {
+    "state": "Arizona",
+    "price": 50
+  },
+  {
+    "state": "arkansas",
+    "price": 27
+  },
+  {
+    "state": "california",
+    "price": 12
+  },
+  {
+    "state": "colorado",
+    "price": 30
+  },
+  {
+    "state": "connecticut",
+    "price": 34
+  },
+  {
+    "state": "delaware",
+    "price": 34
+  },
+  {
+    "state": "florida",
+    "price": 34
+  },
+  {
+    "state": "florida",
+    "price": 34
+  },
+  {
+    "state": "georgia",
+    "price": 34
+  },
+  {
+    "state": "hawaii",
+    "price": 34
+  },
+  {
+    "state": "idaho",
+    "price": 34
+  },
+  {
+    "state": "illinois",
+    "price": 34
+  },
+  {
+    "state": "indiana",
+    "price": 34
+  },
+  {
+    "state": "iowa",
+    "price": 34
+  },
+  {
+    "state": "kansas",
+    "price": 34
+  },
+  {
+    "state": "kentucky",
+    "price": 34
+  },
+  {
+    "state": "Louisiana",
+    "price": 34
+  },
+  {
+    "state": "Maine",
+    "price": 34
+  },
+  {
+    "state": "Maryland",
+    "price": 34
+  },
+  {
+    "state": "Massachusetts",
+    "price": 34
+  },
+  {
+    "state": "Michigan",
+    "price": 34
+  },
+  {
+    "state": "Minnesota",
+    "price": 34
+  },
+  {
+    "state": "Mississippi",
+    "price": 34
+  },
+  {
+    "state": "Missouri",
+    "price": 34
+  },
+  {
+    "state": "Montana",
+    "price": 34
+  },
+  {
+    "state": "Nebraska",
+    "price": 34
+  },
+  {
+    "state": "Nevada",
+    "price": 34
+  },
+  {
+    "state": "New-Hampshire",
+    "price": 34
+  },
+  {
+    "state": "New-Jersey",
+    "price": 34
+  },
+  {
+    "state": "New-Mexico",
+    "price": 34
+  },
+  {
+    "state": "New-York",
+    "price": 34
+  },
+  {
+    "state": "North-Carolina",
+    "price": 34
+  },
+  {
+    "state": "North-Dakota",
+    "price": 34
+  },
+  {
+    "state": "Ohio",
+    "price": 34
+  },
+  {
+    "state": "Oklahoma",
+    "price": 34
+  },
+  {
+    "state": "Oregon",
+    "price": 34
+  },
+  {
+    "state": "Pennsylvania",
+    "price": 34
+  },
+  {
+    "state": "Rhode-Island",
+    "price": 34
+  },
+  {
+    "state": "South-Carolina",
+    "price": 34
+  },
+  {
+    "state": "South-Dakota",
+    "price": 34
+  },
+  {
+    "state": "Tennessee",
+    "price": 34
+  },
+  {
+    "state": "Texas",
+    "price": 34
+  },
+  {
+    "state": "Utah",
+    "price": 34
+  },
+  {
+    "state": "Vermont",
+    "price": 34
+  },
+  {
+    "state": "Virginia",
+    "price": 34
+  },
+  {
+    "state": "Washington-DC",
+    "price": 34
+  },
+  {
+    "state": "Washington-State",
+    "price": 34
+  },
+  {
+    "state": "West-Virginia",
+    "price": 34
+  },
+  {
+    "state": "Wisconsin",
+    "price": 34
+  },
+  {
+    "state": "Wyoming",
+    "price": 34
+  }
+]

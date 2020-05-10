@@ -1,0 +1,217 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Admin/_layout.cshtml";
+}
+
+
+<!-- begin:: Subheader -->
+<div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-container ">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">
+                Create Blog post
+            </h3>
+            <div class="kt-subheader__breadcrumbs">
+                <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    Admin
+                </a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    Blogs
+                </a>
+                <span class="kt-subheader__breadcrumbs-separator"></span>
+                <a href="" class="kt-subheader__breadcrumbs-link">
+                    Add new Post
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end:: Subheader -->
+<!-- begin:: Content -->
+<div class="kt-container  kt-grid__item kt-grid__item--fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <!--begin::Portlet-->
+            <div class="kt-portlet">
+                <!--begin::Form-->
+                <form class="kt-form">
+                    <div class="kt-portlet__body">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" id="kt_maxlength_4" maxlength="255" placeholder="Enter Title">
+                        </div>
+                        <div class="form-group">
+                            <label>Keywords</label>
+                            <input id="kt_tagify_1" name='tags' placeholder='type...' value='css, html, javascript' autofocus data-blacklist='.NET,PHP'>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <div class="summernote" id="kt_summernote_1"></div>
+                        </div>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Portlet-->
+        </div>
+        <div class="col-md-4">
+            <!--begin::Portlet-->
+            <div class="kt-portlet">
+                <div class="kt-portlet__head">
+                    <div class="kt-portlet__head-label">
+                        <h3 class="kt-portlet__head-title">
+                            Publish
+                        </h3>
+                    </div>
+                </div>
+                <!--begin::Form-->
+                <form class="kt-form">
+                    <div class="kt-portlet__body">
+                        <div class="form-group row align-items-lg-center">
+                            <h6 class="col-lg-4 mb-0">
+                                <i class="flaticon-calendar-with-a-clock-time-tools mr-2"></i>
+                                <span> Published on : </span>
+                            </h6>
+                            <div class="input-group date col-lg-8">
+                                <input type="text" class="form-control" placeholder="Select date and time" id="kt_datetimepicker_5" value="04 March 2020 - 05:35 AM" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="la la-calendar glyphicon-th"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-lg-center">
+                            <h6 class="col-lg-4 mb-0">
+                                <i class="flaticon-eye mr-2"></i>
+                                <span> Visibility : </span>
+                            </h6>
+                            <div class="col-lg-8">
+                                <select class="form-control kt-selectpicker">
+                                    <option selected>Public</option>
+                                    <option>only Users</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row align-items-lg-center">
+                            <h6 class="col-lg-4 mb-0">
+                                <i class="fa fa-link mr-2"></i>
+                                <span> Permalink : </span>
+                            </h6>
+                            <div class="col-lg-8">
+                                <input type="text" id="permaLink" class="form-control" value="blog-post-title-1" />
+                                <p class="text-muted small">
+                                    <span>https://apostille.com/</span>
+                                    <span id="url" class="text-primary">blog-post-title-1</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__foot">
+                        <div class="kt-form__actions d-flex flex-sm-wrap justify-content-between">
+                            <button type="reset" class="btn text-danger">Move To trash</button>
+                            <button type="reset" class="btn btn-brand">Publish</button>
+                        </div>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Portlet-->
+            <!--begin::Portlet-->
+            <div class="kt-portlet">
+                <div class="kt-portlet__head">
+                    <div class="kt-portlet__head-label">
+                        <h3 class="kt-portlet__head-title">
+                            Featured image
+                        </h3>
+                    </div>
+                </div>
+                <!--begin::Form-->
+                <form class="kt-form">
+                    <div class="kt-portlet__body">
+                        <div class="dropzone dropzone-default" id="kt_dropzone_1">
+                            <div class="dropzone-msg dz-message needsclick">
+                                <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
+                                <span class="dropzone-msg-desc">This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Portlet-->
+            <!--begin::Portlet-->
+            <div class="kt-portlet">
+                <div class="kt-portlet__head">
+                    <div class="kt-portlet__head-label">
+                        <h3 class="kt-portlet__head-title">
+                            Categories
+                        </h3>
+                    </div>
+                </div>
+                <!--begin::Form-->
+                <form class="kt-form">
+                    <div class="kt-portlet__body">
+                        <div class="form-group">
+                            <lable class="mb-3 d-block">All Categories</lable>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="kt-checkbox kt-checkbox--bold kt-checkbox--brand">
+                                        <input type="checkbox" checked> UnCategorized
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="col-12">
+                                    <label class="kt-checkbox kt-checkbox--bold kt-checkbox--brand">
+                                        <input type="checkbox"> Category 1
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="col-12">
+                                    <label class="kt-checkbox kt-checkbox--bold kt-checkbox--brand">
+                                        <input type="checkbox"> Category 2
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>
+<!-- end:: Content -->
+
+@section scripts{
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/summernote.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/bootstrap-datetimepicker.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/bootstrap-select.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/select2.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/bootstrap-maxlength.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/dropzone.js"></script>
+    <script src="~/Assets/admin/js/demo4/pages/crud/forms/widgets/tagify.js"></script>
+    <script>
+        $(function () {
+            $('#createBlogpost').closest('.kt-menu__item--rel').addClass('kt-menu__item--here');
+            $('#createBlogpost').closest('.kt-menu__item').addClass('kt-menu__item--here');
+            console.clear();
+            
+            $('#permaLink').keyup(function (e) {
+                $('#url').text($(this).val())
+
+            }).keypress(function (e) {
+                if (e.which === 32) {
+                    return false;
+                }
+            })
+
+        })
+    </script>
+}

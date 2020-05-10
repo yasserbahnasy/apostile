@@ -1,0 +1,171 @@
+﻿@model IEnumerable<internationalApostille.Models.FAQ>
+@{
+    ViewBag.Title = "Faqs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <link href="https://cdn.3up.dk/mdi@2.2.43/css/materialdesignicons.min.css" rel="stylesheet" />
+}
+<!-- Title -->
+<div class="main-title" style="">
+    <div class="container">
+        <span class="main-title__primary d-block">FAQs</span>
+        <span class="main-title__secondary d-block">What is happening around us</span>
+    </div>
+</div>
+<!-- Breadcrumb -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a href="/" class="font-weight-bold">Home</a>
+        </span>
+        <span>
+            <span>FAQs</span>
+        </span>
+    </div>
+</div>
+<!-- Body -->
+<div class="container mb-5">
+    <div class="row mb-5">
+        <div class="col-lg-4">
+            <div class="nav nav-pills faq-nav" id="faq-tabs" role="tablist" aria-orientation="vertical">
+                <a href="#tab1" class="nav-link active" data-toggle="pill" role="tab" aria-controls="tab1" aria-selected="true">
+                    <i class="mdi mdi-help-circle"></i> Frequently Asked Questions
+                </a>
+                <a href="#tab2" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2" aria-selected="false">
+                    <i class="mdi mdi-account"></i> Profile
+                </a>
+                <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3" aria-selected="false">
+                    <i class="mdi mdi-account-settings"></i> Account
+                </a>
+                <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4" aria-selected="false">
+                    <i class="mdi mdi-heart"></i> Favorites
+                </a>
+                <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab5" aria-selected="false">
+                    <i class="mdi mdi-coin"></i> Transactions
+                </a>
+                <a href="#tab6" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab6" aria-selected="false">
+                    <i class="mdi mdi-help"></i> General help
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="tab-content" id="faq-tab-content">
+                <div class="tab-pane show active" id="tab1" role="tabpanel" aria-labelledby="tab1">
+                    <div class="accordion" id="accordion-tab-1">
+                        @foreach (var item in Model.Where(a => a.Type == "Frequently Asked Questions"))
+                        {
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-1-heading-@item.id">
+                                    <h5>
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-@item.id" aria-expanded="false" aria-controls="accordion-tab-1-content-@item.id">@item.Question</button>
+                                    </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-1-content-@item.id" aria-labelledby="accordion-tab-1-heading-@item.id" data-parent="#accordion-tab-1">
+                                    <div class="card-body">
+                                        @item.Answer
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab2" role="tabpanel" aria-labelledby="tab2">
+                    <div class="accordion" id="accordion-tab-2">
+                        @foreach (var item in Model.Where(a => a.Type == "Profile"))
+                        {
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-2-heading-@item.id">
+                                    <h5>
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-2-content-@item.id" aria-expanded="false" aria-controls="accordion-tab-2-content-@item.id">@item.Question</button>
+                                    </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-2-content-@item.id" aria-labelledby="accordion-tab-2-heading-@item.id" data-parent="#accordion-tab-2">
+                                    <div class="card-body">
+                                        @item.Answer
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab3" role="tabpanel" aria-labelledby="tab3">
+                    <div class="accordion" id="accordion-tab-3">
+                        @foreach (var item in Model.Where(a => a.Type == "Account"))
+                        {
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-3-heading-@item.id">
+                                    <h5>
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-3-content-@item.id" aria-expanded="false" aria-controls="accordion-tab-3-content-@item.id">@item.Question</button>
+                                    </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-3-content-@item.id" aria-labelledby="accordion-tab-3-heading-@item.id" data-parent="#accordion-tab-3">
+                                    <div class="card-body">
+                                        @item.Answer
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tab4">
+                    <div class="accordion" id="accordion-tab-4">
+                        @foreach (var item in Model.Where(a => a.Type == "Favorites"))
+                        {
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-4-heading-@item.id">
+                                    <h5>
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-4-content-@item.id" aria-expanded="false" aria-controls="accordion-tab-4-content-@item.id">@item.Question</button>
+                                    </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-4-content-@item.id" aria-labelledby="accordion-tab-4-heading-@item.id" data-parent="#accordion-tab-4">
+                                    <div class="card-body">
+                                        @item.Answer
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab5" role="tabpanel" aria-labelledby="tab5">
+                    <div class="accordion" id="accordion-tab-5">
+                        @foreach (var item in Model.Where(a => a.Type == "Transactions"))
+                        {
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-5-heading-@item.id">
+                                    <h5>
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-5-content-@item.id" aria-expanded="false" aria-controls="accordion-tab-5-content-@item.id">@item.Question</button>
+                                    </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-5-content-@item.id" aria-labelledby="accordion-tab-5-heading-@item.id" data-parent="#accordion-tab-5">
+                                    <div class="card-body">
+                                        @item.Answer
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        </div>
+                </div>
+                <div class="tab-pane" id="tab6" role="tabpanel" aria-labelledby="tab6">
+                    <div class="accordion" id="accordion-tab-6">
+                        @foreach (var item in Model.Where(a=>a.Type == "General help"))
+                        {
+                            <div class="card">
+                                <div class="card-header" id="accordion-tab-6-heading-@item.id">
+                                    <h5>
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-6-content-@item.id" aria-expanded="false" aria-controls="accordion-tab-6-content-@item.id">@item.Question</button>
+                                    </h5>
+                                </div>
+                                <div class="collapse" id="accordion-tab-6-content-@item.id" aria-labelledby="accordion-tab-6-heading-@item.id" data-parent="#accordion-tab-6">
+                                    <div class="card-body">
+                                        @item.Answer
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

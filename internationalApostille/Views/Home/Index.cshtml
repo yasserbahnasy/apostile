@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Apostille, US Department of State Apostille, US Apostille, United States Apostille, US Legalization";
+}
+@section styles {
+    <link rel="stylesheet" href="~/Assets/vendor/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/Assets/vendor/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="~/Assets/css/flag-icon.min.css" />
+
+}
+<section class="wrapper">
+    @* Slider section *@
+    @Html.Partial("Components/_Slider")
+</section>
+<section class="wrapper py-5">
+    @Html.Partial("Components/_Intro")
+</section>
+<section class="wrapper pt-5">
+    @Html.Partial("Components/_Value")
+</section>
+<section>
+    @Html.Partial("Components/_CountriesList")
+</section>
+<section class="wrapper py-5">
+    @Html.Partial("Components/_AboutUs")
+</section>
+
+@section scripts {
+    <script src="~/Assets/vendor/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="~/Assets/js/pages/home.js"></script>
+    <script>
+        $(function () {
+            $('#menu-item-11').addClass('current-menu-item');
+            var wrapper = $('#stateList');
+            $.getJSON('./Assets/js/states.json', function (data) {
+                //console.log(data);
+                $.each(data, function (key) {
+                    wrapper.append("<div class=\"col-xl-2 col-md-3 col-sm-4 col-6 country-item\"><a href=\"javascript:void(0)\" class=\"d-flex align-items-center justify-content-between px-1\"><article><img class=\"flag\" src=\"./Assets/img/flags/".concat(data[key].state, ".png\"/><span class=\"small text-secondary text-capitalize\">").concat(data[key].state.replace('-', ' '), "</span></article><span class=\"price text-accent small\">").concat(data[key].price, "$</span></a></div>"))
+                })
+            })
+            
+        })
+    </script>
+}

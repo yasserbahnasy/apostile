@@ -1,0 +1,2778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="USDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Carrier">
+          <Key>
+            <PropertyRef Name="CarrierID" />
+          </Key>
+          <Property Name="CarrierID" Type="int" Nullable="false" />
+          <Property Name="CarrierName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CountryNameSeo" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsApostille" Type="bit" Nullable="false" />
+          <Property Name="IsJurisdiction" Type="bit" Nullable="false" />
+          <Property Name="Fee" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CountryImportantLink">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CountryPaymentMethod">
+          <Key>
+            <PropertyRef Name="CountryPaymentMethodID" />
+          </Key>
+          <Property Name="CountryPaymentMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="PaymentMethodID" Type="int" Nullable="false" />
+          <Property Name="PayableTo" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="County">
+          <Key>
+            <PropertyRef Name="CountyId" />
+          </Key>
+          <Property Name="CountyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountyName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Fee" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AroundTime" Type="int" Nullable="false" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Phone2" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Emailform" Type="nvarchar(max)" />
+          <Property Name="WorkingHours" Type="nvarchar(max)" />
+          <Property Name="POAddress" Type="nvarchar(max)" />
+          <Property Name="ClerkName" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentName" Type="nvarchar(max)" />
+          <Property Name="Website" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CountyPaymentMethod">
+          <Key>
+            <PropertyRef Name="CountyPaymentMethodID" />
+          </Key>
+          <Property Name="CountyPaymentMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountyID" Type="int" Nullable="false" />
+          <Property Name="PaymentMethodID" Type="int" Nullable="false" />
+          <Property Name="PayableTo" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DocumentTypeID" Type="int" Nullable="false" />
+          <Property Name="DocumentText" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentType">
+          <Key>
+            <PropertyRef Name="DocumentTypeID" />
+          </Key>
+          <Property Name="DocumentTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentTypeName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="StateRequired" Type="bit" Nullable="false" />
+          <Property Name="CountyRequired" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Embassy">
+          <Key>
+            <PropertyRef Name="EmbassyID" />
+          </Key>
+          <Property Name="EmbassyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmbassyName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsEmbassy" Type="bit" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AroundTime" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Email2" Type="nvarchar(max)" />
+          <Property Name="Website" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Phone2" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+          <Property Name="ZipCodeExtention" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmailFormURL" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="EmbassyCarrier">
+          <Key>
+            <PropertyRef Name="EmbassyCarrierID" />
+          </Key>
+          <Property Name="EmbassyCarrierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmbassyID" Type="int" Nullable="false" />
+          <Property Name="CarrierID" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="PaymentMethodID" />
+          </Key>
+          <Property Name="PaymentMethodID" Type="int" Nullable="false" />
+          <Property Name="PaymentMethodName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReportTypeID" Type="int" Nullable="false" />
+          <Property Name="ReportMessage" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ReportDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReportType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SelectedState" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ZipCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar(max)" />
+          <Property Name="CompanyPhone" Type="nvarchar(max)" />
+          <Property Name="CellPhone" Type="nvarchar(max)" />
+          <Property Name="Country" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Doc" Type="int" />
+          <Property Name="Fee" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequestCountry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Doc" Type="int" Nullable="false" />
+          <Property Name="IsApostille" Type="bit" Nullable="false" />
+          <Property Name="RequestID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="StateAbb" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsState" Type="bit" Nullable="false" />
+          <Property Name="IsRequiredCountyForApostille" Type="bit" Nullable="false" />
+          <Property Name="IsRequiredCountyForLegalization" Type="bit" Nullable="false" />
+          <Property Name="FeeApostille" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FeeLegalization" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AroundTime" Type="int" Nullable="false" />
+          <Property Name="AroundTimeText" Type="nvarchar" MaxLength="255" />
+          <Property Name="Website" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+          <Property Name="IsTerritory" Type="bit" Nullable="false" />
+          <Property Name="WalkinAroundTime" Type="int" Nullable="false" />
+          <Property Name="WalkinAroundTimeText" Type="nvarchar" MaxLength="255" />
+          <Property Name="WalkinFeeApostille" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WalkinFeeLegalization" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Message" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="StateCountryJurisdiction">
+          <Key>
+            <PropertyRef Name="StateCountryJurisdictionID" />
+          </Key>
+          <Property Name="StateCountryJurisdictionID" Type="int" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+          <Property Name="EmbassyID" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StateExpeditedFee">
+          <Key>
+            <PropertyRef Name="StateExpeditedFeeID" />
+          </Key>
+          <Property Name="StateExpeditedFeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fee" Type="int" Nullable="false" />
+          <Property Name="AroundTime" Type="int" Nullable="false" />
+          <Property Name="AroundTimeText" Type="nvarchar(max)" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+          <Property Name="IsMailing" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StateImportantLink">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StateOffice">
+          <Key>
+            <PropertyRef Name="StateOfficeID" />
+          </Key>
+          <Property Name="StateOfficeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsForApostille" Type="bit" Nullable="false" />
+          <Property Name="IsForLegalization" Type="bit" Nullable="false" />
+          <Property Name="IsMailingAddress" Type="bit" Nullable="false" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Phone2" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Email2" Type="nvarchar(max)" />
+          <Property Name="WorkingHours" Type="nvarchar(max)" />
+          <Property Name="POAddress" Type="nvarchar(max)" />
+          <Property Name="PODepartmentName" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+          <Property Name="POZipCodeExtention" Type="nvarchar" MaxLength="50" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="Latitude" Type="nvarchar(max)" />
+          <Property Name="Longitude" Type="nvarchar(max)" />
+          <Property Name="POZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailFormURL" Type="nvarchar(max)" />
+          <Property Name="ZipCodeExtention" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneExtention" Type="nvarchar" MaxLength="50" />
+          <Property Name="EntityName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="StateOfficeCarrier">
+          <Key>
+            <PropertyRef Name="StateOfficeCarrierID" />
+          </Key>
+          <Property Name="StateOfficeCarrierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateOfficeID" Type="int" Nullable="false" />
+          <Property Name="CarrierID" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StatePaymentMethod">
+          <Key>
+            <PropertyRef Name="StatePaymentMethodID" />
+          </Key>
+          <Property Name="StatePaymentMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+          <Property Name="PaymentMethodID" Type="int" Nullable="false" />
+          <Property Name="PayableTo" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastEditedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastEditDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeletionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TwentyContactInfoData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="150" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="150" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Companyname" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="Country" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+          <Property Name="Cellphone" Type="nvarchar" MaxLength="150" />
+          <Property Name="State" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="Signature" Type="nvarchar" MaxLength="150" />
+          <Property Name="SignatureCO" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TwentyExtraFedexTicket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestId" Type="int" />
+          <Property Name="IsExpedited" Type="bit" />
+          <Property Name="TrackingToUSDepartment" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrackingToUSDepartmentImage" Type="varbinary(max)" />
+          <Property Name="TrackingToUSDepartmentStatusId" Type="int" />
+          <Property Name="TrackingToEmbassy" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrackingToEmbassyImage" Type="varbinary(max)" />
+          <Property Name="TrackingToEmbassyStatusId" Type="int" />
+          <Property Name="TrackingToCompany" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrackingToCompanyImage" Type="varbinary(max)" />
+          <Property Name="TrackingToCompanyStatusId" Type="int" />
+        </EntityType>
+        <EntityType Name="TwentyFedexStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TwentyRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrackingIn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrackingOut" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrackingImageIn" Type="varbinary(max)" />
+          <Property Name="TrackingImageOut" Type="varbinary(max)" />
+          <Property Name="RequestDate" Type="datetime" />
+          <Property Name="AuthenticationNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaidAmount" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="150" />
+          <Property Name="ContactInfoId" Type="int" />
+          <Property Name="IsLegalizationCountry" Type="bit" />
+          <Property Name="StatusIdOfTrackingIn" Type="int" />
+          <Property Name="StatusIdOfTrackingOut" Type="int" />
+          <Property Name="IsFedral" Type="bit" />
+          <Property Name="IsExpedited" Type="bit" />
+          <Property Name="InsertedWebURL" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="USDepartment">
+          <Key>
+            <PropertyRef Name="USDepartmentID" />
+          </Key>
+          <Property Name="USDepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USDepartmentName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Fee" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="MailAroundTime" Type="int" Nullable="false" />
+          <Property Name="WalkAroundTimeText" Type="nvarchar(max)" />
+          <Property Name="Website" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email2" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Phone2" Type="nvarchar(max)" />
+          <Property Name="MailAddress" Type="nvarchar(max)" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WalkAddress" Type="nvarchar(max)" />
+          <Property Name="POAddress" Type="nvarchar(max)" />
+          <Property Name="PODepartmentName" Type="nvarchar(max)" />
+          <Property Name="POZipCodeExtention" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="USDepartmentImportantLink">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="USDepartmentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USDepartmentPaymentMethod">
+          <Key>
+            <PropertyRef Name="USDepartmentPaymentMethodID" />
+          </Key>
+          <Property Name="USDepartmentPaymentMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USDepartmentID" Type="int" Nullable="false" />
+          <Property Name="PaymentMethodID" Type="int" Nullable="false" />
+          <Property Name="PayableTo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ZipCode">
+          <Key>
+            <PropertyRef Name="ZipCode" />
+          </Key>
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CountryImportantLink_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="CountryImportantLink" Type="Self.CountryImportantLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="CountryImportantLink">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryPaymentMethod_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="CountryPaymentMethod" Type="Self.CountryPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="CountryPaymentMethod">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryPaymentMethod_PaymentMethod">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="CountryPaymentMethod" Type="Self.CountryPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Principal>
+            <Dependent Role="CountryPaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_County_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="County" Type="Self.County" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="County">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_County_ZipCode">
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="0..1" />
+          <End Role="County" Type="Self.County" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipCode" />
+            </Principal>
+            <Dependent Role="County">
+              <PropertyRef Name="ZipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountyPaymentMethod_County">
+          <End Role="County" Type="Self.County" Multiplicity="1" />
+          <End Role="CountyPaymentMethod" Type="Self.CountyPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="County">
+              <PropertyRef Name="CountyId" />
+            </Principal>
+            <Dependent Role="CountyPaymentMethod">
+              <PropertyRef Name="CountyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountyPaymentMethod_PaymentMethod">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="CountyPaymentMethod" Type="Self.CountyPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Principal>
+            <Dependent Role="CountyPaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_DocumentType">
+          <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+          <End Role="Document" Type="Self.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentType">
+              <PropertyRef Name="DocumentTypeID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="DocumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Embassy_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Embassy" Type="Self.Embassy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Embassy">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Embassy_ZipCode">
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="1" />
+          <End Role="Embassy" Type="Self.Embassy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipCode" />
+            </Principal>
+            <Dependent Role="Embassy">
+              <PropertyRef Name="ZipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmbassyCarrier_Carrier">
+          <End Role="Carrier" Type="Self.Carrier" Multiplicity="1" />
+          <End Role="EmbassyCarrier" Type="Self.EmbassyCarrier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrier">
+              <PropertyRef Name="CarrierID" />
+            </Principal>
+            <Dependent Role="EmbassyCarrier">
+              <PropertyRef Name="CarrierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmbassyCarrier_Embassy">
+          <End Role="Embassy" Type="Self.Embassy" Multiplicity="1" />
+          <End Role="EmbassyCarrier" Type="Self.EmbassyCarrier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Embassy">
+              <PropertyRef Name="EmbassyID" />
+            </Principal>
+            <Dependent Role="EmbassyCarrier">
+              <PropertyRef Name="EmbassyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpeditedFee_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StateExpeditedFee" Type="Self.StateExpeditedFee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="StateExpeditedFee">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Report_ReportType">
+          <End Role="ReportType" Type="Self.ReportType" Multiplicity="1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="ReportTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequestCountry_Request">
+          <End Role="Request" Type="Self.Request" Multiplicity="1" />
+          <End Role="RequestCountry" Type="Self.RequestCountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Request">
+              <PropertyRef Name="RequestID" />
+            </Principal>
+            <Dependent Role="RequestCountry">
+              <PropertyRef Name="RequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateCarrier_Carrier">
+          <End Role="Carrier" Type="Self.Carrier" Multiplicity="1" />
+          <End Role="StateOfficeCarrier" Type="Self.StateOfficeCarrier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrier">
+              <PropertyRef Name="CarrierID" />
+            </Principal>
+            <Dependent Role="StateOfficeCarrier">
+              <PropertyRef Name="CarrierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateCountryJurisdiction_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="StateCountryJurisdiction" Type="Self.StateCountryJurisdiction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="StateCountryJurisdiction">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateCountryJurisdiction_Embassy">
+          <End Role="Embassy" Type="Self.Embassy" Multiplicity="1" />
+          <End Role="StateCountryJurisdiction" Type="Self.StateCountryJurisdiction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Embassy">
+              <PropertyRef Name="EmbassyID" />
+            </Principal>
+            <Dependent Role="StateCountryJurisdiction">
+              <PropertyRef Name="EmbassyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateCountryJurisdiction_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StateCountryJurisdiction" Type="Self.StateCountryJurisdiction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="StateCountryJurisdiction">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateImportantLink_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StateImportantLink" Type="Self.StateImportantLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="StateImportantLink">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateOffice_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StateOffice" Type="Self.StateOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="StateOffice">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateOffice_ZipCode">
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="1" />
+          <End Role="StateOffice" Type="Self.StateOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipCode" />
+            </Principal>
+            <Dependent Role="StateOffice">
+              <PropertyRef Name="ZipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateOffice_ZipCode1">
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="0..1" />
+          <End Role="StateOffice" Type="Self.StateOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipCode" />
+            </Principal>
+            <Dependent Role="StateOffice">
+              <PropertyRef Name="POZipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateOfficeCarrier_StateOffice">
+          <End Role="StateOffice" Type="Self.StateOffice" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StateOfficeCarrier" Type="Self.StateOfficeCarrier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateOffice">
+              <PropertyRef Name="StateOfficeID" />
+            </Principal>
+            <Dependent Role="StateOfficeCarrier">
+              <PropertyRef Name="StateOfficeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StatePaymentMethod_PaymentMethod">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="StatePaymentMethod" Type="Self.StatePaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Principal>
+            <Dependent Role="StatePaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StatePaymentMethod_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StatePaymentMethod" Type="Self.StatePaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="StatePaymentMethod">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyExtraFedexTicket_TwentyFedexStatus">
+          <End Role="TwentyFedexStatus" Type="Self.TwentyFedexStatus" Multiplicity="0..1" />
+          <End Role="TwentyExtraFedexTicket" Type="Self.TwentyExtraFedexTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyFedexStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyExtraFedexTicket">
+              <PropertyRef Name="TrackingToUSDepartmentStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyExtraFedexTicket_TwentyFedexStatus1">
+          <End Role="TwentyFedexStatus" Type="Self.TwentyFedexStatus" Multiplicity="0..1" />
+          <End Role="TwentyExtraFedexTicket" Type="Self.TwentyExtraFedexTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyFedexStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyExtraFedexTicket">
+              <PropertyRef Name="TrackingToEmbassyStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyExtraFedexTicket_TwentyRequest">
+          <End Role="TwentyRequest" Type="Self.TwentyRequest" Multiplicity="0..1" />
+          <End Role="TwentyExtraFedexTicket" Type="Self.TwentyExtraFedexTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyRequest">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyExtraFedexTicket">
+              <PropertyRef Name="RequestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyRequest_TwentyContactInfoData">
+          <End Role="TwentyContactInfoData" Type="Self.TwentyContactInfoData" Multiplicity="0..1" />
+          <End Role="TwentyRequest" Type="Self.TwentyRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyContactInfoData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyRequest">
+              <PropertyRef Name="ContactInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyRequest_TwentyFedexStatus">
+          <End Role="TwentyFedexStatus" Type="Self.TwentyFedexStatus" Multiplicity="0..1" />
+          <End Role="TwentyRequest" Type="Self.TwentyRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyFedexStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyRequest">
+              <PropertyRef Name="StatusIdOfTrackingIn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyRequest_TwentyFedexStatus1">
+          <End Role="TwentyFedexStatus" Type="Self.TwentyFedexStatus" Multiplicity="0..1" />
+          <End Role="TwentyRequest" Type="Self.TwentyRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyFedexStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyRequest">
+              <PropertyRef Name="StatusIdOfTrackingOut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USDepartment_ZipCode">
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="1" />
+          <End Role="USDepartment" Type="Self.USDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipCode" />
+            </Principal>
+            <Dependent Role="USDepartment">
+              <PropertyRef Name="ZipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USDepartmentImportantLink_USDepartment">
+          <End Role="USDepartment" Type="Self.USDepartment" Multiplicity="1" />
+          <End Role="USDepartmentImportantLink" Type="Self.USDepartmentImportantLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USDepartment">
+              <PropertyRef Name="USDepartmentID" />
+            </Principal>
+            <Dependent Role="USDepartmentImportantLink">
+              <PropertyRef Name="USDepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USDepartmentPaymentMethod_PaymentMethod">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="USDepartmentPaymentMethod" Type="Self.USDepartmentPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Principal>
+            <Dependent Role="USDepartmentPaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USDepartmentPaymentMethod_USDepartment">
+          <End Role="USDepartment" Type="Self.USDepartment" Multiplicity="1" />
+          <End Role="USDepartmentPaymentMethod" Type="Self.USDepartmentPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USDepartment">
+              <PropertyRef Name="USDepartmentID" />
+            </Principal>
+            <Dependent Role="USDepartmentPaymentMethod">
+              <PropertyRef Name="USDepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZipCode_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="ZipCode">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="USDBModelStoreContainer">
+          <EntitySet Name="Carrier" EntityType="Self.Carrier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryImportantLink" EntityType="Self.CountryImportantLink" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryPaymentMethod" EntityType="Self.CountryPaymentMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="County" EntityType="Self.County" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountyPaymentMethod" EntityType="Self.CountyPaymentMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Embassy" EntityType="Self.Embassy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmbassyCarrier" EntityType="Self.EmbassyCarrier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportType" EntityType="Self.ReportType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestCountry" EntityType="Self.RequestCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateCountryJurisdiction" EntityType="Self.StateCountryJurisdiction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateExpeditedFee" EntityType="Self.StateExpeditedFee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateImportantLink" EntityType="Self.StateImportantLink" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateOffice" EntityType="Self.StateOffice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateOfficeCarrier" EntityType="Self.StateOfficeCarrier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatePaymentMethod" EntityType="Self.StatePaymentMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TwentyContactInfoData" EntityType="Self.TwentyContactInfoData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TwentyExtraFedexTicket" EntityType="Self.TwentyExtraFedexTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TwentyFedexStatus" EntityType="Self.TwentyFedexStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TwentyRequest" EntityType="Self.TwentyRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USDepartment" EntityType="Self.USDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USDepartmentImportantLink" EntityType="Self.USDepartmentImportantLink" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USDepartmentPaymentMethod" EntityType="Self.USDepartmentPaymentMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZipCode" EntityType="Self.ZipCode" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CountryImportantLink_Country" Association="Self.FK_CountryImportantLink_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="CountryImportantLink" EntitySet="CountryImportantLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryPaymentMethod_Country" Association="Self.FK_CountryPaymentMethod_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="CountryPaymentMethod" EntitySet="CountryPaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryPaymentMethod_PaymentMethod" Association="Self.FK_CountryPaymentMethod_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+            <End Role="CountryPaymentMethod" EntitySet="CountryPaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_County_State" Association="Self.FK_County_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="County" EntitySet="County" />
+          </AssociationSet>
+          <AssociationSet Name="FK_County_ZipCode" Association="Self.FK_County_ZipCode">
+            <End Role="ZipCode" EntitySet="ZipCode" />
+            <End Role="County" EntitySet="County" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountyPaymentMethod_County" Association="Self.FK_CountyPaymentMethod_County">
+            <End Role="County" EntitySet="County" />
+            <End Role="CountyPaymentMethod" EntitySet="CountyPaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountyPaymentMethod_PaymentMethod" Association="Self.FK_CountyPaymentMethod_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+            <End Role="CountyPaymentMethod" EntitySet="CountyPaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_DocumentType" Association="Self.FK_Document_DocumentType">
+            <End Role="DocumentType" EntitySet="DocumentType" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Embassy_Country" Association="Self.FK_Embassy_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Embassy" EntitySet="Embassy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Embassy_ZipCode" Association="Self.FK_Embassy_ZipCode">
+            <End Role="ZipCode" EntitySet="ZipCode" />
+            <End Role="Embassy" EntitySet="Embassy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmbassyCarrier_Carrier" Association="Self.FK_EmbassyCarrier_Carrier">
+            <End Role="Carrier" EntitySet="Carrier" />
+            <End Role="EmbassyCarrier" EntitySet="EmbassyCarrier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmbassyCarrier_Embassy" Association="Self.FK_EmbassyCarrier_Embassy">
+            <End Role="Embassy" EntitySet="Embassy" />
+            <End Role="EmbassyCarrier" EntitySet="EmbassyCarrier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpeditedFee_State" Association="Self.FK_ExpeditedFee_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="StateExpeditedFee" EntitySet="StateExpeditedFee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Report_ReportType" Association="Self.FK_Report_ReportType">
+            <End Role="ReportType" EntitySet="ReportType" />
+            <End Role="Report" EntitySet="Report" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequestCountry_Request" Association="Self.FK_RequestCountry_Request">
+            <End Role="Request" EntitySet="Request" />
+            <End Role="RequestCountry" EntitySet="RequestCountry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateCarrier_Carrier" Association="Self.FK_StateCarrier_Carrier">
+            <End Role="Carrier" EntitySet="Carrier" />
+            <End Role="StateOfficeCarrier" EntitySet="StateOfficeCarrier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateCountryJurisdiction_Country" Association="Self.FK_StateCountryJurisdiction_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="StateCountryJurisdiction" EntitySet="StateCountryJurisdiction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateCountryJurisdiction_Embassy" Association="Self.FK_StateCountryJurisdiction_Embassy">
+            <End Role="Embassy" EntitySet="Embassy" />
+            <End Role="StateCountryJurisdiction" EntitySet="StateCountryJurisdiction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateCountryJurisdiction_State" Association="Self.FK_StateCountryJurisdiction_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="StateCountryJurisdiction" EntitySet="StateCountryJurisdiction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateImportantLink_State" Association="Self.FK_StateImportantLink_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="StateImportantLink" EntitySet="StateImportantLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateOffice_State" Association="Self.FK_StateOffice_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="StateOffice" EntitySet="StateOffice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateOffice_ZipCode" Association="Self.FK_StateOffice_ZipCode">
+            <End Role="ZipCode" EntitySet="ZipCode" />
+            <End Role="StateOffice" EntitySet="StateOffice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateOffice_ZipCode1" Association="Self.FK_StateOffice_ZipCode1">
+            <End Role="ZipCode" EntitySet="ZipCode" />
+            <End Role="StateOffice" EntitySet="StateOffice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateOfficeCarrier_StateOffice" Association="Self.FK_StateOfficeCarrier_StateOffice">
+            <End Role="StateOffice" EntitySet="StateOffice" />
+            <End Role="StateOfficeCarrier" EntitySet="StateOfficeCarrier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StatePaymentMethod_PaymentMethod" Association="Self.FK_StatePaymentMethod_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+            <End Role="StatePaymentMethod" EntitySet="StatePaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StatePaymentMethod_State" Association="Self.FK_StatePaymentMethod_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="StatePaymentMethod" EntitySet="StatePaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyExtraFedexTicket_TwentyFedexStatus" Association="Self.FK_TwentyExtraFedexTicket_TwentyFedexStatus">
+            <End Role="TwentyFedexStatus" EntitySet="TwentyFedexStatus" />
+            <End Role="TwentyExtraFedexTicket" EntitySet="TwentyExtraFedexTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyExtraFedexTicket_TwentyFedexStatus1" Association="Self.FK_TwentyExtraFedexTicket_TwentyFedexStatus1">
+            <End Role="TwentyFedexStatus" EntitySet="TwentyFedexStatus" />
+            <End Role="TwentyExtraFedexTicket" EntitySet="TwentyExtraFedexTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyExtraFedexTicket_TwentyRequest" Association="Self.FK_TwentyExtraFedexTicket_TwentyRequest">
+            <End Role="TwentyRequest" EntitySet="TwentyRequest" />
+            <End Role="TwentyExtraFedexTicket" EntitySet="TwentyExtraFedexTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyRequest_TwentyContactInfoData" Association="Self.FK_TwentyRequest_TwentyContactInfoData">
+            <End Role="TwentyContactInfoData" EntitySet="TwentyContactInfoData" />
+            <End Role="TwentyRequest" EntitySet="TwentyRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyRequest_TwentyFedexStatus" Association="Self.FK_TwentyRequest_TwentyFedexStatus">
+            <End Role="TwentyFedexStatus" EntitySet="TwentyFedexStatus" />
+            <End Role="TwentyRequest" EntitySet="TwentyRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyRequest_TwentyFedexStatus1" Association="Self.FK_TwentyRequest_TwentyFedexStatus1">
+            <End Role="TwentyFedexStatus" EntitySet="TwentyFedexStatus" />
+            <End Role="TwentyRequest" EntitySet="TwentyRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USDepartment_ZipCode" Association="Self.FK_USDepartment_ZipCode">
+            <End Role="ZipCode" EntitySet="ZipCode" />
+            <End Role="USDepartment" EntitySet="USDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USDepartmentImportantLink_USDepartment" Association="Self.FK_USDepartmentImportantLink_USDepartment">
+            <End Role="USDepartment" EntitySet="USDepartment" />
+            <End Role="USDepartmentImportantLink" EntitySet="USDepartmentImportantLink" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USDepartmentPaymentMethod_PaymentMethod" Association="Self.FK_USDepartmentPaymentMethod_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+            <End Role="USDepartmentPaymentMethod" EntitySet="USDepartmentPaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USDepartmentPaymentMethod_USDepartment" Association="Self.FK_USDepartmentPaymentMethod_USDepartment">
+            <End Role="USDepartment" EntitySet="USDepartment" />
+            <End Role="USDepartmentPaymentMethod" EntitySet="USDepartmentPaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZipCode_State" Association="Self.FK_ZipCode_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="ZipCode" EntitySet="ZipCode" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="USDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Carrier">
+          <Key>
+            <PropertyRef Name="CarrierID" />
+          </Key>
+          <Property Name="CarrierID" Type="Int32" Nullable="false" />
+          <Property Name="CarrierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="EmbassyCarriers" Relationship="Self.FK_EmbassyCarrier_Carrier" FromRole="Carrier" ToRole="EmbassyCarrier" />
+          <NavigationProperty Name="StateOfficeCarriers" Relationship="Self.FK_StateCarrier_Carrier" FromRole="Carrier" ToRole="StateOfficeCarrier" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountryNameSeo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsApostille" Type="Boolean" Nullable="false" />
+          <Property Name="IsJurisdiction" Type="Boolean" Nullable="false" />
+          <Property Name="Fee" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CountryImportantLinks" Relationship="Self.FK_CountryImportantLink_Country" FromRole="Country" ToRole="CountryImportantLink" />
+          <NavigationProperty Name="CountryPaymentMethods" Relationship="Self.FK_CountryPaymentMethod_Country" FromRole="Country" ToRole="CountryPaymentMethod" />
+          <NavigationProperty Name="Embassies" Relationship="Self.FK_Embassy_Country" FromRole="Country" ToRole="Embassy" />
+          <NavigationProperty Name="StateCountryJurisdictions" Relationship="Self.FK_StateCountryJurisdiction_Country" FromRole="Country" ToRole="StateCountryJurisdiction" />
+        </EntityType>
+        <EntityType Name="CountryImportantLink">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_CountryImportantLink_Country" FromRole="CountryImportantLink" ToRole="Country" />
+        </EntityType>
+        <EntityType Name="CountryPaymentMethod">
+          <Key>
+            <PropertyRef Name="CountryPaymentMethodID" />
+          </Key>
+          <Property Name="CountryPaymentMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+          <Property Name="PayableTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_CountryPaymentMethod_Country" FromRole="CountryPaymentMethod" ToRole="Country" />
+          <NavigationProperty Name="PaymentMethod" Relationship="Self.FK_CountryPaymentMethod_PaymentMethod" FromRole="CountryPaymentMethod" ToRole="PaymentMethod" />
+        </EntityType>
+        <EntityType Name="County">
+          <Key>
+            <PropertyRef Name="CountyId" />
+          </Key>
+          <Property Name="CountyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountyName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fee" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AroundTime" Type="Int32" Nullable="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Emailform" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkingHours" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="POAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClerkName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="State" Relationship="Self.FK_County_State" FromRole="County" ToRole="State" />
+          <NavigationProperty Name="ZipCode1" Relationship="Self.FK_County_ZipCode" FromRole="County" ToRole="ZipCode" />
+          <NavigationProperty Name="CountyPaymentMethods" Relationship="Self.FK_CountyPaymentMethod_County" FromRole="County" ToRole="CountyPaymentMethod" />
+        </EntityType>
+        <EntityType Name="CountyPaymentMethod">
+          <Key>
+            <PropertyRef Name="CountyPaymentMethodID" />
+          </Key>
+          <Property Name="CountyPaymentMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountyID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+          <Property Name="PayableTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="County" Relationship="Self.FK_CountyPaymentMethod_County" FromRole="CountyPaymentMethod" ToRole="County" />
+          <NavigationProperty Name="PaymentMethod" Relationship="Self.FK_CountyPaymentMethod_PaymentMethod" FromRole="CountyPaymentMethod" ToRole="PaymentMethod" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentID" />
+          </Key>
+          <Property Name="DocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DocumentTypeID" Type="Int32" Nullable="false" />
+          <Property Name="DocumentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DocumentType" Relationship="Self.FK_Document_DocumentType" FromRole="Document" ToRole="DocumentType" />
+        </EntityType>
+        <EntityType Name="DocumentType">
+          <Key>
+            <PropertyRef Name="DocumentTypeID" />
+          </Key>
+          <Property Name="DocumentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentTypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateRequired" Type="Boolean" Nullable="false" />
+          <Property Name="CountyRequired" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_Document_DocumentType" FromRole="DocumentType" ToRole="Document" />
+        </EntityType>
+        <EntityType Name="Embassy">
+          <Key>
+            <PropertyRef Name="EmbassyID" />
+          </Key>
+          <Property Name="EmbassyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmbassyName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsEmbassy" Type="Boolean" Nullable="false" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AroundTime" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <Property Name="ZipCodeExtention" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EmailFormURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Embassy_Country" FromRole="Embassy" ToRole="Country" />
+          <NavigationProperty Name="ZipCode1" Relationship="Self.FK_Embassy_ZipCode" FromRole="Embassy" ToRole="ZipCode" />
+          <NavigationProperty Name="EmbassyCarriers" Relationship="Self.FK_EmbassyCarrier_Embassy" FromRole="Embassy" ToRole="EmbassyCarrier" />
+          <NavigationProperty Name="StateCountryJurisdictions" Relationship="Self.FK_StateCountryJurisdiction_Embassy" FromRole="Embassy" ToRole="StateCountryJurisdiction" />
+        </EntityType>
+        <EntityType Name="EmbassyCarrier">
+          <Key>
+            <PropertyRef Name="EmbassyCarrierID" />
+          </Key>
+          <Property Name="EmbassyCarrierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmbassyID" Type="Int32" Nullable="false" />
+          <Property Name="CarrierID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Carrier" Relationship="Self.FK_EmbassyCarrier_Carrier" FromRole="EmbassyCarrier" ToRole="Carrier" />
+          <NavigationProperty Name="Embassy" Relationship="Self.FK_EmbassyCarrier_Embassy" FromRole="EmbassyCarrier" ToRole="Embassy" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="PaymentMethodID" />
+          </Key>
+          <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentMethodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CountryPaymentMethods" Relationship="Self.FK_CountryPaymentMethod_PaymentMethod" FromRole="PaymentMethod" ToRole="CountryPaymentMethod" />
+          <NavigationProperty Name="CountyPaymentMethods" Relationship="Self.FK_CountyPaymentMethod_PaymentMethod" FromRole="PaymentMethod" ToRole="CountyPaymentMethod" />
+          <NavigationProperty Name="StatePaymentMethods" Relationship="Self.FK_StatePaymentMethod_PaymentMethod" FromRole="PaymentMethod" ToRole="StatePaymentMethod" />
+          <NavigationProperty Name="USDepartmentPaymentMethods" Relationship="Self.FK_USDepartmentPaymentMethod_PaymentMethod" FromRole="PaymentMethod" ToRole="USDepartmentPaymentMethod" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReportTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ReportMessage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReportDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="ReportType" Relationship="Self.FK_Report_ReportType" FromRole="Report" ToRole="ReportType" />
+        </EntityType>
+        <EntityType Name="ReportType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Reports" Relationship="Self.FK_Report_ReportType" FromRole="ReportType" ToRole="Report" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SelectedState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CellPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Doc" Type="Int32" />
+          <Property Name="Fee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="RequestCountries" Relationship="Self.FK_RequestCountry_Request" FromRole="Request" ToRole="RequestCountry" />
+        </EntityType>
+        <EntityType Name="RequestCountry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Doc" Type="Int32" Nullable="false" />
+          <Property Name="IsApostille" Type="Boolean" Nullable="false" />
+          <Property Name="RequestID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Request" Relationship="Self.FK_RequestCountry_Request" FromRole="RequestCountry" ToRole="Request" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateAbb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsState" Type="Boolean" Nullable="false" />
+          <Property Name="IsRequiredCountyForApostille" Type="Boolean" Nullable="false" />
+          <Property Name="IsRequiredCountyForLegalization" Type="Boolean" Nullable="false" />
+          <Property Name="FeeApostille" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FeeLegalization" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AroundTime" Type="Int32" Nullable="false" />
+          <Property Name="AroundTimeText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <Property Name="IsTerritory" Type="Boolean" Nullable="false" />
+          <Property Name="WalkinAroundTime" Type="Int32" Nullable="false" />
+          <Property Name="WalkinAroundTimeText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WalkinFeeApostille" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WalkinFeeLegalization" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Counties" Relationship="Self.FK_County_State" FromRole="State" ToRole="County" />
+          <NavigationProperty Name="StateExpeditedFees" Relationship="Self.FK_ExpeditedFee_State" FromRole="State" ToRole="StateExpeditedFee" />
+          <NavigationProperty Name="StateCountryJurisdictions" Relationship="Self.FK_StateCountryJurisdiction_State" FromRole="State" ToRole="StateCountryJurisdiction" />
+          <NavigationProperty Name="StateImportantLinks" Relationship="Self.FK_StateImportantLink_State" FromRole="State" ToRole="StateImportantLink" />
+          <NavigationProperty Name="StateOffices" Relationship="Self.FK_StateOffice_State" FromRole="State" ToRole="StateOffice" />
+          <NavigationProperty Name="StatePaymentMethods" Relationship="Self.FK_StatePaymentMethod_State" FromRole="State" ToRole="StatePaymentMethod" />
+          <NavigationProperty Name="ZipCodes" Relationship="Self.FK_ZipCode_State" FromRole="State" ToRole="ZipCode" />
+        </EntityType>
+        <EntityType Name="StateCountryJurisdiction">
+          <Key>
+            <PropertyRef Name="StateCountryJurisdictionID" />
+          </Key>
+          <Property Name="StateCountryJurisdictionID" Type="Int32" Nullable="false" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="EmbassyID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_StateCountryJurisdiction_Country" FromRole="StateCountryJurisdiction" ToRole="Country" />
+          <NavigationProperty Name="Embassy" Relationship="Self.FK_StateCountryJurisdiction_Embassy" FromRole="StateCountryJurisdiction" ToRole="Embassy" />
+          <NavigationProperty Name="State" Relationship="Self.FK_StateCountryJurisdiction_State" FromRole="StateCountryJurisdiction" ToRole="State" />
+        </EntityType>
+        <EntityType Name="StateExpeditedFee">
+          <Key>
+            <PropertyRef Name="StateExpeditedFeeID" />
+          </Key>
+          <Property Name="StateExpeditedFeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fee" Type="Int32" Nullable="false" />
+          <Property Name="AroundTime" Type="Int32" Nullable="false" />
+          <Property Name="AroundTimeText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="IsMailing" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="State" Relationship="Self.FK_ExpeditedFee_State" FromRole="StateExpeditedFee" ToRole="State" />
+        </EntityType>
+        <EntityType Name="StateImportantLink">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="State" Relationship="Self.FK_StateImportantLink_State" FromRole="StateImportantLink" ToRole="State" />
+        </EntityType>
+        <EntityType Name="StateOffice">
+          <Key>
+            <PropertyRef Name="StateOfficeID" />
+          </Key>
+          <Property Name="StateOfficeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsForApostille" Type="Boolean" Nullable="false" />
+          <Property Name="IsForLegalization" Type="Boolean" Nullable="false" />
+          <Property Name="IsMailingAddress" Type="Boolean" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkingHours" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="POAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PODepartmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <Property Name="POZipCodeExtention" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="Latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="POZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailFormURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCodeExtention" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneExtention" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EntityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="State" Relationship="Self.FK_StateOffice_State" FromRole="StateOffice" ToRole="State" />
+          <NavigationProperty Name="ZipCode1" Relationship="Self.FK_StateOffice_ZipCode" FromRole="StateOffice" ToRole="ZipCode" />
+          <NavigationProperty Name="ZipCode2" Relationship="Self.FK_StateOffice_ZipCode1" FromRole="StateOffice" ToRole="ZipCode" />
+          <NavigationProperty Name="StateOfficeCarriers" Relationship="Self.FK_StateOfficeCarrier_StateOffice" FromRole="StateOffice" ToRole="StateOfficeCarrier" />
+        </EntityType>
+        <EntityType Name="StateOfficeCarrier">
+          <Key>
+            <PropertyRef Name="StateOfficeCarrierID" />
+          </Key>
+          <Property Name="StateOfficeCarrierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateOfficeID" Type="Int32" Nullable="false" />
+          <Property Name="CarrierID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Carrier" Relationship="Self.FK_StateCarrier_Carrier" FromRole="StateOfficeCarrier" ToRole="Carrier" />
+          <NavigationProperty Name="StateOffice" Relationship="Self.FK_StateOfficeCarrier_StateOffice" FromRole="StateOfficeCarrier" ToRole="StateOffice" />
+        </EntityType>
+        <EntityType Name="StatePaymentMethod">
+          <Key>
+            <PropertyRef Name="StatePaymentMethodID" />
+          </Key>
+          <Property Name="StatePaymentMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+          <Property Name="PayableTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastEditDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PaymentMethod" Relationship="Self.FK_StatePaymentMethod_PaymentMethod" FromRole="StatePaymentMethod" ToRole="PaymentMethod" />
+          <NavigationProperty Name="State" Relationship="Self.FK_StatePaymentMethod_State" FromRole="StatePaymentMethod" ToRole="State" />
+        </EntityType>
+        <EntityType Name="TwentyContactInfoData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Companyname" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Cellphone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Signature" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SignatureCO" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TwentyRequests" Relationship="Self.FK_TwentyRequest_TwentyContactInfoData" FromRole="TwentyContactInfoData" ToRole="TwentyRequest" />
+        </EntityType>
+        <EntityType Name="TwentyExtraFedexTicket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestId" Type="Int32" />
+          <Property Name="IsExpedited" Type="Boolean" />
+          <Property Name="TrackingToUSDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrackingToUSDepartmentImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TrackingToUSDepartmentStatusId" Type="Int32" />
+          <Property Name="TrackingToEmbassy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrackingToEmbassyImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TrackingToEmbassyStatusId" Type="Int32" />
+          <Property Name="TrackingToCompany" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrackingToCompanyImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TrackingToCompanyStatusId" Type="Int32" />
+          <NavigationProperty Name="TwentyFedexStatu" Relationship="Self.FK_TwentyExtraFedexTicket_TwentyFedexStatus" FromRole="TwentyExtraFedexTicket" ToRole="TwentyFedexStatus" />
+          <NavigationProperty Name="TwentyFedexStatu1" Relationship="Self.FK_TwentyExtraFedexTicket_TwentyFedexStatus1" FromRole="TwentyExtraFedexTicket" ToRole="TwentyFedexStatus" />
+          <NavigationProperty Name="TwentyRequest" Relationship="Self.FK_TwentyExtraFedexTicket_TwentyRequest" FromRole="TwentyExtraFedexTicket" ToRole="TwentyRequest" />
+        </EntityType>
+        <EntityType Name="TwentyFedexStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TwentyExtraFedexTickets" Relationship="Self.FK_TwentyExtraFedexTicket_TwentyFedexStatus" FromRole="TwentyFedexStatus" ToRole="TwentyExtraFedexTicket" />
+          <NavigationProperty Name="TwentyExtraFedexTickets1" Relationship="Self.FK_TwentyExtraFedexTicket_TwentyFedexStatus1" FromRole="TwentyFedexStatus" ToRole="TwentyExtraFedexTicket" />
+          <NavigationProperty Name="TwentyRequests" Relationship="Self.FK_TwentyRequest_TwentyFedexStatus" FromRole="TwentyFedexStatus" ToRole="TwentyRequest" />
+          <NavigationProperty Name="TwentyRequests1" Relationship="Self.FK_TwentyRequest_TwentyFedexStatus1" FromRole="TwentyFedexStatus" ToRole="TwentyRequest" />
+        </EntityType>
+        <EntityType Name="TwentyRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrackingIn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrackingOut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrackingImageIn" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TrackingImageOut" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="RequestDate" Type="DateTime" Precision="3" />
+          <Property Name="AuthenticationNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaidAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceNumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContactInfoId" Type="Int32" />
+          <Property Name="IsLegalizationCountry" Type="Boolean" />
+          <Property Name="StatusIdOfTrackingIn" Type="Int32" />
+          <Property Name="StatusIdOfTrackingOut" Type="Int32" />
+          <Property Name="IsFedral" Type="Boolean" />
+          <Property Name="IsExpedited" Type="Boolean" />
+          <Property Name="InsertedWebURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TwentyContactInfoData" Relationship="Self.FK_TwentyRequest_TwentyContactInfoData" FromRole="TwentyRequest" ToRole="TwentyContactInfoData" />
+          <NavigationProperty Name="TwentyExtraFedexTickets" Relationship="Self.FK_TwentyExtraFedexTicket_TwentyRequest" FromRole="TwentyRequest" ToRole="TwentyExtraFedexTicket" />
+          <NavigationProperty Name="TwentyFedexStatu" Relationship="Self.FK_TwentyRequest_TwentyFedexStatus" FromRole="TwentyRequest" ToRole="TwentyFedexStatus" />
+          <NavigationProperty Name="TwentyFedexStatu1" Relationship="Self.FK_TwentyRequest_TwentyFedexStatus1" FromRole="TwentyRequest" ToRole="TwentyFedexStatus" />
+        </EntityType>
+        <EntityType Name="USDepartment">
+          <Key>
+            <PropertyRef Name="USDepartmentID" />
+          </Key>
+          <Property Name="USDepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USDepartmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fee" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="MailAroundTime" Type="Int32" Nullable="false" />
+          <Property Name="WalkAroundTimeText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WalkAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="POAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PODepartmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="POZipCodeExtention" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ZipCode1" Relationship="Self.FK_USDepartment_ZipCode" FromRole="USDepartment" ToRole="ZipCode" />
+          <NavigationProperty Name="USDepartmentImportantLinks" Relationship="Self.FK_USDepartmentImportantLink_USDepartment" FromRole="USDepartment" ToRole="USDepartmentImportantLink" />
+          <NavigationProperty Name="USDepartmentPaymentMethods" Relationship="Self.FK_USDepartmentPaymentMethod_USDepartment" FromRole="USDepartment" ToRole="USDepartmentPaymentMethod" />
+        </EntityType>
+        <EntityType Name="USDepartmentImportantLink">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USDepartmentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="USDepartment" Relationship="Self.FK_USDepartmentImportantLink_USDepartment" FromRole="USDepartmentImportantLink" ToRole="USDepartment" />
+        </EntityType>
+        <EntityType Name="USDepartmentPaymentMethod">
+          <Key>
+            <PropertyRef Name="USDepartmentPaymentMethodID" />
+          </Key>
+          <Property Name="USDepartmentPaymentMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USDepartmentID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+          <Property Name="PayableTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PaymentMethod" Relationship="Self.FK_USDepartmentPaymentMethod_PaymentMethod" FromRole="USDepartmentPaymentMethod" ToRole="PaymentMethod" />
+          <NavigationProperty Name="USDepartment" Relationship="Self.FK_USDepartmentPaymentMethod_USDepartment" FromRole="USDepartmentPaymentMethod" ToRole="USDepartment" />
+        </EntityType>
+        <EntityType Name="ZipCode">
+          <Key>
+            <PropertyRef Name="ZipCode1" />
+          </Key>
+          <Property Name="ZipCode1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Counties" Relationship="Self.FK_County_ZipCode" FromRole="ZipCode" ToRole="County" />
+          <NavigationProperty Name="Embassies" Relationship="Self.FK_Embassy_ZipCode" FromRole="ZipCode" ToRole="Embassy" />
+          <NavigationProperty Name="State" Relationship="Self.FK_ZipCode_State" FromRole="ZipCode" ToRole="State" />
+          <NavigationProperty Name="StateOffices" Relationship="Self.FK_StateOffice_ZipCode" FromRole="ZipCode" ToRole="StateOffice" />
+          <NavigationProperty Name="StateOffices1" Relationship="Self.FK_StateOffice_ZipCode1" FromRole="ZipCode" ToRole="StateOffice" />
+          <NavigationProperty Name="USDepartments" Relationship="Self.FK_USDepartment_ZipCode" FromRole="ZipCode" ToRole="USDepartment" />
+        </EntityType>
+        <Association Name="FK_EmbassyCarrier_Carrier">
+          <End Role="Carrier" Type="Self.Carrier" Multiplicity="1" />
+          <End Role="EmbassyCarrier" Type="Self.EmbassyCarrier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrier">
+              <PropertyRef Name="CarrierID" />
+            </Principal>
+            <Dependent Role="EmbassyCarrier">
+              <PropertyRef Name="CarrierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateCarrier_Carrier">
+          <End Role="Carrier" Type="Self.Carrier" Multiplicity="1" />
+          <End Role="StateOfficeCarrier" Type="Self.StateOfficeCarrier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrier">
+              <PropertyRef Name="CarrierID" />
+            </Principal>
+            <Dependent Role="StateOfficeCarrier">
+              <PropertyRef Name="CarrierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryImportantLink_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="CountryImportantLink" Type="Self.CountryImportantLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="CountryImportantLink">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryPaymentMethod_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="CountryPaymentMethod" Type="Self.CountryPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="CountryPaymentMethod">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Embassy_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Embassy" Type="Self.Embassy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Embassy">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateCountryJurisdiction_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="StateCountryJurisdiction" Type="Self.StateCountryJurisdiction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="StateCountryJurisdiction">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryPaymentMethod_PaymentMethod">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="CountryPaymentMethod" Type="Self.CountryPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Principal>
+            <Dependent Role="CountryPaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_County_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="County" Type="Self.County" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="County">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_County_ZipCode">
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="0..1" />
+          <End Role="County" Type="Self.County" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipCode1" />
+            </Principal>
+            <Dependent Role="County">
+              <PropertyRef Name="ZipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountyPaymentMethod_County">
+          <End Role="County" Type="Self.County" Multiplicity="1" />
+          <End Role="CountyPaymentMethod" Type="Self.CountyPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="County">
+              <PropertyRef Name="CountyId" />
+            </Principal>
+            <Dependent Role="CountyPaymentMethod">
+              <PropertyRef Name="CountyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountyPaymentMethod_PaymentMethod">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="CountyPaymentMethod" Type="Self.CountyPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Principal>
+            <Dependent Role="CountyPaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_DocumentType">
+          <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+          <End Role="Document" Type="Self.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentType">
+              <PropertyRef Name="DocumentTypeID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="DocumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Embassy_ZipCode">
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="1" />
+          <End Role="Embassy" Type="Self.Embassy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipCode1" />
+            </Principal>
+            <Dependent Role="Embassy">
+              <PropertyRef Name="ZipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmbassyCarrier_Embassy">
+          <End Role="Embassy" Type="Self.Embassy" Multiplicity="1" />
+          <End Role="EmbassyCarrier" Type="Self.EmbassyCarrier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Embassy">
+              <PropertyRef Name="EmbassyID" />
+            </Principal>
+            <Dependent Role="EmbassyCarrier">
+              <PropertyRef Name="EmbassyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateCountryJurisdiction_Embassy">
+          <End Role="Embassy" Type="Self.Embassy" Multiplicity="1" />
+          <End Role="StateCountryJurisdiction" Type="Self.StateCountryJurisdiction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Embassy">
+              <PropertyRef Name="EmbassyID" />
+            </Principal>
+            <Dependent Role="StateCountryJurisdiction">
+              <PropertyRef Name="EmbassyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StatePaymentMethod_PaymentMethod">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="StatePaymentMethod" Type="Self.StatePaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Principal>
+            <Dependent Role="StatePaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USDepartmentPaymentMethod_PaymentMethod">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="USDepartmentPaymentMethod" Type="Self.USDepartmentPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Principal>
+            <Dependent Role="USDepartmentPaymentMethod">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Report_ReportType">
+          <End Role="ReportType" Type="Self.ReportType" Multiplicity="1" />
+          <End Role="Report" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="ReportTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequestCountry_Request">
+          <End Role="Request" Type="Self.Request" Multiplicity="1" />
+          <End Role="RequestCountry" Type="Self.RequestCountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Request">
+              <PropertyRef Name="RequestID" />
+            </Principal>
+            <Dependent Role="RequestCountry">
+              <PropertyRef Name="RequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpeditedFee_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StateExpeditedFee" Type="Self.StateExpeditedFee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="StateExpeditedFee">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateCountryJurisdiction_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StateCountryJurisdiction" Type="Self.StateCountryJurisdiction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="StateCountryJurisdiction">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateImportantLink_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StateImportantLink" Type="Self.StateImportantLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="StateImportantLink">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateOffice_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StateOffice" Type="Self.StateOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="StateOffice">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StatePaymentMethod_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StatePaymentMethod" Type="Self.StatePaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="StatePaymentMethod">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZipCode_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="ZipCode">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateOffice_ZipCode">
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="1" />
+          <End Role="StateOffice" Type="Self.StateOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipCode1" />
+            </Principal>
+            <Dependent Role="StateOffice">
+              <PropertyRef Name="ZipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateOffice_ZipCode1">
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="0..1" />
+          <End Role="StateOffice" Type="Self.StateOffice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipCode1" />
+            </Principal>
+            <Dependent Role="StateOffice">
+              <PropertyRef Name="POZipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateOfficeCarrier_StateOffice">
+          <End Role="StateOffice" Type="Self.StateOffice" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StateOfficeCarrier" Type="Self.StateOfficeCarrier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateOffice">
+              <PropertyRef Name="StateOfficeID" />
+            </Principal>
+            <Dependent Role="StateOfficeCarrier">
+              <PropertyRef Name="StateOfficeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyRequest_TwentyContactInfoData">
+          <End Role="TwentyContactInfoData" Type="Self.TwentyContactInfoData" Multiplicity="0..1" />
+          <End Role="TwentyRequest" Type="Self.TwentyRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyContactInfoData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyRequest">
+              <PropertyRef Name="ContactInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyExtraFedexTicket_TwentyFedexStatus">
+          <End Role="TwentyFedexStatus" Type="Self.TwentyFedexStatu" Multiplicity="0..1" />
+          <End Role="TwentyExtraFedexTicket" Type="Self.TwentyExtraFedexTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyFedexStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyExtraFedexTicket">
+              <PropertyRef Name="TrackingToUSDepartmentStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyExtraFedexTicket_TwentyFedexStatus1">
+          <End Role="TwentyFedexStatus" Type="Self.TwentyFedexStatu" Multiplicity="0..1" />
+          <End Role="TwentyExtraFedexTicket" Type="Self.TwentyExtraFedexTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyFedexStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyExtraFedexTicket">
+              <PropertyRef Name="TrackingToEmbassyStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyExtraFedexTicket_TwentyRequest">
+          <End Role="TwentyRequest" Type="Self.TwentyRequest" Multiplicity="0..1" />
+          <End Role="TwentyExtraFedexTicket" Type="Self.TwentyExtraFedexTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyRequest">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyExtraFedexTicket">
+              <PropertyRef Name="RequestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyRequest_TwentyFedexStatus">
+          <End Role="TwentyFedexStatus" Type="Self.TwentyFedexStatu" Multiplicity="0..1" />
+          <End Role="TwentyRequest" Type="Self.TwentyRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyFedexStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyRequest">
+              <PropertyRef Name="StatusIdOfTrackingIn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TwentyRequest_TwentyFedexStatus1">
+          <End Role="TwentyFedexStatus" Type="Self.TwentyFedexStatu" Multiplicity="0..1" />
+          <End Role="TwentyRequest" Type="Self.TwentyRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TwentyFedexStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TwentyRequest">
+              <PropertyRef Name="StatusIdOfTrackingOut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USDepartment_ZipCode">
+          <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="1" />
+          <End Role="USDepartment" Type="Self.USDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZipCode">
+              <PropertyRef Name="ZipCode1" />
+            </Principal>
+            <Dependent Role="USDepartment">
+              <PropertyRef Name="ZipCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USDepartmentImportantLink_USDepartment">
+          <End Role="USDepartment" Type="Self.USDepartment" Multiplicity="1" />
+          <End Role="USDepartmentImportantLink" Type="Self.USDepartmentImportantLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USDepartment">
+              <PropertyRef Name="USDepartmentID" />
+            </Principal>
+            <Dependent Role="USDepartmentImportantLink">
+              <PropertyRef Name="USDepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USDepartmentPaymentMethod_USDepartment">
+          <End Role="USDepartment" Type="Self.USDepartment" Multiplicity="1" />
+          <End Role="USDepartmentPaymentMethod" Type="Self.USDepartmentPaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USDepartment">
+              <PropertyRef Name="USDepartmentID" />
+            </Principal>
+            <Dependent Role="USDepartmentPaymentMethod">
+              <PropertyRef Name="USDepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="USDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Carriers" EntityType="Self.Carrier" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="CountryImportantLinks" EntityType="Self.CountryImportantLink" />
+          <EntitySet Name="CountryPaymentMethods" EntityType="Self.CountryPaymentMethod" />
+          <EntitySet Name="Counties" EntityType="Self.County" />
+          <EntitySet Name="CountyPaymentMethods" EntityType="Self.CountyPaymentMethod" />
+          <EntitySet Name="Documents" EntityType="Self.Document" />
+          <EntitySet Name="DocumentTypes" EntityType="Self.DocumentType" />
+          <EntitySet Name="Embassies" EntityType="Self.Embassy" />
+          <EntitySet Name="EmbassyCarriers" EntityType="Self.EmbassyCarrier" />
+          <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethod" />
+          <EntitySet Name="Reports" EntityType="Self.Report" />
+          <EntitySet Name="ReportTypes" EntityType="Self.ReportType" />
+          <EntitySet Name="Requests" EntityType="Self.Request" />
+          <EntitySet Name="RequestCountries" EntityType="Self.RequestCountry" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="StateCountryJurisdictions" EntityType="Self.StateCountryJurisdiction" />
+          <EntitySet Name="StateExpeditedFees" EntityType="Self.StateExpeditedFee" />
+          <EntitySet Name="StateImportantLinks" EntityType="Self.StateImportantLink" />
+          <EntitySet Name="StateOffices" EntityType="Self.StateOffice" />
+          <EntitySet Name="StateOfficeCarriers" EntityType="Self.StateOfficeCarrier" />
+          <EntitySet Name="StatePaymentMethods" EntityType="Self.StatePaymentMethod" />
+          <EntitySet Name="TwentyContactInfoDatas" EntityType="Self.TwentyContactInfoData" />
+          <EntitySet Name="TwentyExtraFedexTickets" EntityType="Self.TwentyExtraFedexTicket" />
+          <EntitySet Name="TwentyFedexStatus" EntityType="Self.TwentyFedexStatu" />
+          <EntitySet Name="TwentyRequests" EntityType="Self.TwentyRequest" />
+          <EntitySet Name="USDepartments" EntityType="Self.USDepartment" />
+          <EntitySet Name="USDepartmentImportantLinks" EntityType="Self.USDepartmentImportantLink" />
+          <EntitySet Name="USDepartmentPaymentMethods" EntityType="Self.USDepartmentPaymentMethod" />
+          <EntitySet Name="ZipCodes" EntityType="Self.ZipCode" />
+          <AssociationSet Name="FK_EmbassyCarrier_Carrier" Association="Self.FK_EmbassyCarrier_Carrier">
+            <End Role="Carrier" EntitySet="Carriers" />
+            <End Role="EmbassyCarrier" EntitySet="EmbassyCarriers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateCarrier_Carrier" Association="Self.FK_StateCarrier_Carrier">
+            <End Role="Carrier" EntitySet="Carriers" />
+            <End Role="StateOfficeCarrier" EntitySet="StateOfficeCarriers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryImportantLink_Country" Association="Self.FK_CountryImportantLink_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="CountryImportantLink" EntitySet="CountryImportantLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryPaymentMethod_Country" Association="Self.FK_CountryPaymentMethod_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="CountryPaymentMethod" EntitySet="CountryPaymentMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Embassy_Country" Association="Self.FK_Embassy_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Embassy" EntitySet="Embassies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateCountryJurisdiction_Country" Association="Self.FK_StateCountryJurisdiction_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="StateCountryJurisdiction" EntitySet="StateCountryJurisdictions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryPaymentMethod_PaymentMethod" Association="Self.FK_CountryPaymentMethod_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+            <End Role="CountryPaymentMethod" EntitySet="CountryPaymentMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_County_State" Association="Self.FK_County_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="County" EntitySet="Counties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_County_ZipCode" Association="Self.FK_County_ZipCode">
+            <End Role="ZipCode" EntitySet="ZipCodes" />
+            <End Role="County" EntitySet="Counties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountyPaymentMethod_County" Association="Self.FK_CountyPaymentMethod_County">
+            <End Role="County" EntitySet="Counties" />
+            <End Role="CountyPaymentMethod" EntitySet="CountyPaymentMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountyPaymentMethod_PaymentMethod" Association="Self.FK_CountyPaymentMethod_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+            <End Role="CountyPaymentMethod" EntitySet="CountyPaymentMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_DocumentType" Association="Self.FK_Document_DocumentType">
+            <End Role="DocumentType" EntitySet="DocumentTypes" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Embassy_ZipCode" Association="Self.FK_Embassy_ZipCode">
+            <End Role="ZipCode" EntitySet="ZipCodes" />
+            <End Role="Embassy" EntitySet="Embassies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmbassyCarrier_Embassy" Association="Self.FK_EmbassyCarrier_Embassy">
+            <End Role="Embassy" EntitySet="Embassies" />
+            <End Role="EmbassyCarrier" EntitySet="EmbassyCarriers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateCountryJurisdiction_Embassy" Association="Self.FK_StateCountryJurisdiction_Embassy">
+            <End Role="Embassy" EntitySet="Embassies" />
+            <End Role="StateCountryJurisdiction" EntitySet="StateCountryJurisdictions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StatePaymentMethod_PaymentMethod" Association="Self.FK_StatePaymentMethod_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+            <End Role="StatePaymentMethod" EntitySet="StatePaymentMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USDepartmentPaymentMethod_PaymentMethod" Association="Self.FK_USDepartmentPaymentMethod_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+            <End Role="USDepartmentPaymentMethod" EntitySet="USDepartmentPaymentMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Report_ReportType" Association="Self.FK_Report_ReportType">
+            <End Role="ReportType" EntitySet="ReportTypes" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequestCountry_Request" Association="Self.FK_RequestCountry_Request">
+            <End Role="Request" EntitySet="Requests" />
+            <End Role="RequestCountry" EntitySet="RequestCountries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpeditedFee_State" Association="Self.FK_ExpeditedFee_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="StateExpeditedFee" EntitySet="StateExpeditedFees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateCountryJurisdiction_State" Association="Self.FK_StateCountryJurisdiction_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="StateCountryJurisdiction" EntitySet="StateCountryJurisdictions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateImportantLink_State" Association="Self.FK_StateImportantLink_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="StateImportantLink" EntitySet="StateImportantLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateOffice_State" Association="Self.FK_StateOffice_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="StateOffice" EntitySet="StateOffices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StatePaymentMethod_State" Association="Self.FK_StatePaymentMethod_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="StatePaymentMethod" EntitySet="StatePaymentMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZipCode_State" Association="Self.FK_ZipCode_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="ZipCode" EntitySet="ZipCodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateOffice_ZipCode" Association="Self.FK_StateOffice_ZipCode">
+            <End Role="ZipCode" EntitySet="ZipCodes" />
+            <End Role="StateOffice" EntitySet="StateOffices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateOffice_ZipCode1" Association="Self.FK_StateOffice_ZipCode1">
+            <End Role="ZipCode" EntitySet="ZipCodes" />
+            <End Role="StateOffice" EntitySet="StateOffices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateOfficeCarrier_StateOffice" Association="Self.FK_StateOfficeCarrier_StateOffice">
+            <End Role="StateOffice" EntitySet="StateOffices" />
+            <End Role="StateOfficeCarrier" EntitySet="StateOfficeCarriers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyRequest_TwentyContactInfoData" Association="Self.FK_TwentyRequest_TwentyContactInfoData">
+            <End Role="TwentyContactInfoData" EntitySet="TwentyContactInfoDatas" />
+            <End Role="TwentyRequest" EntitySet="TwentyRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyExtraFedexTicket_TwentyFedexStatus" Association="Self.FK_TwentyExtraFedexTicket_TwentyFedexStatus">
+            <End Role="TwentyFedexStatus" EntitySet="TwentyFedexStatus" />
+            <End Role="TwentyExtraFedexTicket" EntitySet="TwentyExtraFedexTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyExtraFedexTicket_TwentyFedexStatus1" Association="Self.FK_TwentyExtraFedexTicket_TwentyFedexStatus1">
+            <End Role="TwentyFedexStatus" EntitySet="TwentyFedexStatus" />
+            <End Role="TwentyExtraFedexTicket" EntitySet="TwentyExtraFedexTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyExtraFedexTicket_TwentyRequest" Association="Self.FK_TwentyExtraFedexTicket_TwentyRequest">
+            <End Role="TwentyRequest" EntitySet="TwentyRequests" />
+            <End Role="TwentyExtraFedexTicket" EntitySet="TwentyExtraFedexTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyRequest_TwentyFedexStatus" Association="Self.FK_TwentyRequest_TwentyFedexStatus">
+            <End Role="TwentyFedexStatus" EntitySet="TwentyFedexStatus" />
+            <End Role="TwentyRequest" EntitySet="TwentyRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TwentyRequest_TwentyFedexStatus1" Association="Self.FK_TwentyRequest_TwentyFedexStatus1">
+            <End Role="TwentyFedexStatus" EntitySet="TwentyFedexStatus" />
+            <End Role="TwentyRequest" EntitySet="TwentyRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USDepartment_ZipCode" Association="Self.FK_USDepartment_ZipCode">
+            <End Role="ZipCode" EntitySet="ZipCodes" />
+            <End Role="USDepartment" EntitySet="USDepartments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USDepartmentImportantLink_USDepartment" Association="Self.FK_USDepartmentImportantLink_USDepartment">
+            <End Role="USDepartment" EntitySet="USDepartments" />
+            <End Role="USDepartmentImportantLink" EntitySet="USDepartmentImportantLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USDepartmentPaymentMethod_USDepartment" Association="Self.FK_USDepartmentPaymentMethod_USDepartment">
+            <End Role="USDepartment" EntitySet="USDepartments" />
+            <End Role="USDepartmentPaymentMethod" EntitySet="USDepartmentPaymentMethods" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="USDBModelStoreContainer" CdmEntityContainer="USDBEntities">
+          <EntitySetMapping Name="Carriers">
+            <EntityTypeMapping TypeName="USDBModel.Carrier">
+              <MappingFragment StoreEntitySet="Carrier">
+                <ScalarProperty Name="CarrierID" ColumnName="CarrierID" />
+                <ScalarProperty Name="CarrierName" ColumnName="CarrierName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="USDBModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryNameSeo" ColumnName="CountryNameSeo" />
+                <ScalarProperty Name="IsApostille" ColumnName="IsApostille" />
+                <ScalarProperty Name="IsJurisdiction" ColumnName="IsJurisdiction" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryImportantLinks">
+            <EntityTypeMapping TypeName="USDBModel.CountryImportantLink">
+              <MappingFragment StoreEntitySet="CountryImportantLink">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryPaymentMethods">
+            <EntityTypeMapping TypeName="USDBModel.CountryPaymentMethod">
+              <MappingFragment StoreEntitySet="CountryPaymentMethod">
+                <ScalarProperty Name="CountryPaymentMethodID" ColumnName="CountryPaymentMethodID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="PayableTo" ColumnName="PayableTo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Counties">
+            <EntityTypeMapping TypeName="USDBModel.County">
+              <MappingFragment StoreEntitySet="County">
+                <ScalarProperty Name="CountyId" ColumnName="CountyId" />
+                <ScalarProperty Name="CountyName" ColumnName="CountyName" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="AroundTime" ColumnName="AroundTime" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Emailform" ColumnName="Emailform" />
+                <ScalarProperty Name="WorkingHours" ColumnName="WorkingHours" />
+                <ScalarProperty Name="POAddress" ColumnName="POAddress" />
+                <ScalarProperty Name="ClerkName" ColumnName="ClerkName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountyPaymentMethods">
+            <EntityTypeMapping TypeName="USDBModel.CountyPaymentMethod">
+              <MappingFragment StoreEntitySet="CountyPaymentMethod">
+                <ScalarProperty Name="CountyPaymentMethodID" ColumnName="CountyPaymentMethodID" />
+                <ScalarProperty Name="CountyID" ColumnName="CountyID" />
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="PayableTo" ColumnName="PayableTo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="USDBModel.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+                <ScalarProperty Name="DocumentTypeID" ColumnName="DocumentTypeID" />
+                <ScalarProperty Name="DocumentText" ColumnName="DocumentText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentTypes">
+            <EntityTypeMapping TypeName="USDBModel.DocumentType">
+              <MappingFragment StoreEntitySet="DocumentType">
+                <ScalarProperty Name="DocumentTypeID" ColumnName="DocumentTypeID" />
+                <ScalarProperty Name="DocumentTypeName" ColumnName="DocumentTypeName" />
+                <ScalarProperty Name="StateRequired" ColumnName="StateRequired" />
+                <ScalarProperty Name="CountyRequired" ColumnName="CountyRequired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Embassies">
+            <EntityTypeMapping TypeName="USDBModel.Embassy">
+              <MappingFragment StoreEntitySet="Embassy">
+                <ScalarProperty Name="EmbassyID" ColumnName="EmbassyID" />
+                <ScalarProperty Name="EmbassyName" ColumnName="EmbassyName" />
+                <ScalarProperty Name="IsEmbassy" ColumnName="IsEmbassy" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="AroundTime" ColumnName="AroundTime" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+                <ScalarProperty Name="ZipCodeExtention" ColumnName="ZipCodeExtention" />
+                <ScalarProperty Name="EmailFormURL" ColumnName="EmailFormURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmbassyCarriers">
+            <EntityTypeMapping TypeName="USDBModel.EmbassyCarrier">
+              <MappingFragment StoreEntitySet="EmbassyCarrier">
+                <ScalarProperty Name="EmbassyCarrierID" ColumnName="EmbassyCarrierID" />
+                <ScalarProperty Name="EmbassyID" ColumnName="EmbassyID" />
+                <ScalarProperty Name="CarrierID" ColumnName="CarrierID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMethods">
+            <EntityTypeMapping TypeName="USDBModel.PaymentMethod">
+              <MappingFragment StoreEntitySet="PaymentMethod">
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="PaymentMethodName" ColumnName="PaymentMethodName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="USDBModel.Report">
+              <MappingFragment StoreEntitySet="Report">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ReportTypeID" ColumnName="ReportTypeID" />
+                <ScalarProperty Name="ReportMessage" ColumnName="ReportMessage" />
+                <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportTypes">
+            <EntityTypeMapping TypeName="USDBModel.ReportType">
+              <MappingFragment StoreEntitySet="ReportType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="USDBModel.Request">
+              <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="SelectedState" ColumnName="SelectedState" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyPhone" ColumnName="CompanyPhone" />
+                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Doc" ColumnName="Doc" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestCountries">
+            <EntityTypeMapping TypeName="USDBModel.RequestCountry">
+              <MappingFragment StoreEntitySet="RequestCountry">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Doc" ColumnName="Doc" />
+                <ScalarProperty Name="IsApostille" ColumnName="IsApostille" />
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="USDBModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateAbb" ColumnName="StateAbb" />
+                <ScalarProperty Name="IsState" ColumnName="IsState" />
+                <ScalarProperty Name="IsRequiredCountyForApostille" ColumnName="IsRequiredCountyForApostille" />
+                <ScalarProperty Name="IsRequiredCountyForLegalization" ColumnName="IsRequiredCountyForLegalization" />
+                <ScalarProperty Name="FeeApostille" ColumnName="FeeApostille" />
+                <ScalarProperty Name="FeeLegalization" ColumnName="FeeLegalization" />
+                <ScalarProperty Name="AroundTime" ColumnName="AroundTime" />
+                <ScalarProperty Name="AroundTimeText" ColumnName="AroundTimeText" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+                <ScalarProperty Name="IsTerritory" ColumnName="IsTerritory" />
+                <ScalarProperty Name="WalkinAroundTime" ColumnName="WalkinAroundTime" />
+                <ScalarProperty Name="WalkinAroundTimeText" ColumnName="WalkinAroundTimeText" />
+                <ScalarProperty Name="WalkinFeeApostille" ColumnName="WalkinFeeApostille" />
+                <ScalarProperty Name="WalkinFeeLegalization" ColumnName="WalkinFeeLegalization" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateCountryJurisdictions">
+            <EntityTypeMapping TypeName="USDBModel.StateCountryJurisdiction">
+              <MappingFragment StoreEntitySet="StateCountryJurisdiction">
+                <ScalarProperty Name="StateCountryJurisdictionID" ColumnName="StateCountryJurisdictionID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="EmbassyID" ColumnName="EmbassyID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateExpeditedFees">
+            <EntityTypeMapping TypeName="USDBModel.StateExpeditedFee">
+              <MappingFragment StoreEntitySet="StateExpeditedFee">
+                <ScalarProperty Name="StateExpeditedFeeID" ColumnName="StateExpeditedFeeID" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="AroundTime" ColumnName="AroundTime" />
+                <ScalarProperty Name="AroundTimeText" ColumnName="AroundTimeText" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="IsMailing" ColumnName="IsMailing" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateImportantLinks">
+            <EntityTypeMapping TypeName="USDBModel.StateImportantLink">
+              <MappingFragment StoreEntitySet="StateImportantLink">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateOffices">
+            <EntityTypeMapping TypeName="USDBModel.StateOffice">
+              <MappingFragment StoreEntitySet="StateOffice">
+                <ScalarProperty Name="StateOfficeID" ColumnName="StateOfficeID" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="IsForApostille" ColumnName="IsForApostille" />
+                <ScalarProperty Name="IsForLegalization" ColumnName="IsForLegalization" />
+                <ScalarProperty Name="IsMailingAddress" ColumnName="IsMailingAddress" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="WorkingHours" ColumnName="WorkingHours" />
+                <ScalarProperty Name="POAddress" ColumnName="POAddress" />
+                <ScalarProperty Name="PODepartmentName" ColumnName="PODepartmentName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+                <ScalarProperty Name="POZipCodeExtention" ColumnName="POZipCodeExtention" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="POZipCode" ColumnName="POZipCode" />
+                <ScalarProperty Name="EmailFormURL" ColumnName="EmailFormURL" />
+                <ScalarProperty Name="ZipCodeExtention" ColumnName="ZipCodeExtention" />
+                <ScalarProperty Name="PhoneExtention" ColumnName="PhoneExtention" />
+                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateOfficeCarriers">
+            <EntityTypeMapping TypeName="USDBModel.StateOfficeCarrier">
+              <MappingFragment StoreEntitySet="StateOfficeCarrier">
+                <ScalarProperty Name="StateOfficeCarrierID" ColumnName="StateOfficeCarrierID" />
+                <ScalarProperty Name="StateOfficeID" ColumnName="StateOfficeID" />
+                <ScalarProperty Name="CarrierID" ColumnName="CarrierID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatePaymentMethods">
+            <EntityTypeMapping TypeName="USDBModel.StatePaymentMethod">
+              <MappingFragment StoreEntitySet="StatePaymentMethod">
+                <ScalarProperty Name="StatePaymentMethodID" ColumnName="StatePaymentMethodID" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="PayableTo" ColumnName="PayableTo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="LastEditDate" ColumnName="LastEditDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TwentyContactInfoDatas">
+            <EntityTypeMapping TypeName="USDBModel.TwentyContactInfoData">
+              <MappingFragment StoreEntitySet="TwentyContactInfoData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
+                <ScalarProperty Name="SignatureCO" ColumnName="SignatureCO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TwentyExtraFedexTickets">
+            <EntityTypeMapping TypeName="USDBModel.TwentyExtraFedexTicket">
+              <MappingFragment StoreEntitySet="TwentyExtraFedexTicket">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+                <ScalarProperty Name="IsExpedited" ColumnName="IsExpedited" />
+                <ScalarProperty Name="TrackingToUSDepartment" ColumnName="TrackingToUSDepartment" />
+                <ScalarProperty Name="TrackingToUSDepartmentImage" ColumnName="TrackingToUSDepartmentImage" />
+                <ScalarProperty Name="TrackingToUSDepartmentStatusId" ColumnName="TrackingToUSDepartmentStatusId" />
+                <ScalarProperty Name="TrackingToEmbassy" ColumnName="TrackingToEmbassy" />
+                <ScalarProperty Name="TrackingToEmbassyImage" ColumnName="TrackingToEmbassyImage" />
+                <ScalarProperty Name="TrackingToEmbassyStatusId" ColumnName="TrackingToEmbassyStatusId" />
+                <ScalarProperty Name="TrackingToCompany" ColumnName="TrackingToCompany" />
+                <ScalarProperty Name="TrackingToCompanyImage" ColumnName="TrackingToCompanyImage" />
+                <ScalarProperty Name="TrackingToCompanyStatusId" ColumnName="TrackingToCompanyStatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TwentyFedexStatus">
+            <EntityTypeMapping TypeName="USDBModel.TwentyFedexStatu">
+              <MappingFragment StoreEntitySet="TwentyFedexStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TwentyRequests">
+            <EntityTypeMapping TypeName="USDBModel.TwentyRequest">
+              <MappingFragment StoreEntitySet="TwentyRequest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TrackingIn" ColumnName="TrackingIn" />
+                <ScalarProperty Name="TrackingOut" ColumnName="TrackingOut" />
+                <ScalarProperty Name="TrackingImageIn" ColumnName="TrackingImageIn" />
+                <ScalarProperty Name="TrackingImageOut" ColumnName="TrackingImageOut" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="AuthenticationNum" ColumnName="AuthenticationNum" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="ContactInfoId" ColumnName="ContactInfoId" />
+                <ScalarProperty Name="IsLegalizationCountry" ColumnName="IsLegalizationCountry" />
+                <ScalarProperty Name="StatusIdOfTrackingIn" ColumnName="StatusIdOfTrackingIn" />
+                <ScalarProperty Name="StatusIdOfTrackingOut" ColumnName="StatusIdOfTrackingOut" />
+                <ScalarProperty Name="IsFedral" ColumnName="IsFedral" />
+                <ScalarProperty Name="IsExpedited" ColumnName="IsExpedited" />
+                <ScalarProperty Name="InsertedWebURL" ColumnName="InsertedWebURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USDepartments">
+            <EntityTypeMapping TypeName="USDBModel.USDepartment">
+              <MappingFragment StoreEntitySet="USDepartment">
+                <ScalarProperty Name="USDepartmentID" ColumnName="USDepartmentID" />
+                <ScalarProperty Name="USDepartmentName" ColumnName="USDepartmentName" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="MailAroundTime" ColumnName="MailAroundTime" />
+                <ScalarProperty Name="WalkAroundTimeText" ColumnName="WalkAroundTimeText" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="MailAddress" ColumnName="MailAddress" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="WalkAddress" ColumnName="WalkAddress" />
+                <ScalarProperty Name="POAddress" ColumnName="POAddress" />
+                <ScalarProperty Name="PODepartmentName" ColumnName="PODepartmentName" />
+                <ScalarProperty Name="POZipCodeExtention" ColumnName="POZipCodeExtention" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USDepartmentImportantLinks">
+            <EntityTypeMapping TypeName="USDBModel.USDepartmentImportantLink">
+              <MappingFragment StoreEntitySet="USDepartmentImportantLink">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="USDepartmentID" ColumnName="USDepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USDepartmentPaymentMethods">
+            <EntityTypeMapping TypeName="USDBModel.USDepartmentPaymentMethod">
+              <MappingFragment StoreEntitySet="USDepartmentPaymentMethod">
+                <ScalarProperty Name="USDepartmentPaymentMethodID" ColumnName="USDepartmentPaymentMethodID" />
+                <ScalarProperty Name="USDepartmentID" ColumnName="USDepartmentID" />
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="PayableTo" ColumnName="PayableTo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZipCodes">
+            <EntityTypeMapping TypeName="USDBModel.ZipCode">
+              <MappingFragment StoreEntitySet="ZipCode">
+                <ScalarProperty Name="ZipCode1" ColumnName="ZipCode" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
