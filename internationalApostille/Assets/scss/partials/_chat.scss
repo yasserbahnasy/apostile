@@ -1,0 +1,51 @@
+﻿.chat-wrapper {
+    max-width: 360px;
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    overflow: hidden;
+    height: 44px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+    z-index: 9999;
+    transition: all .1s ease-in-out;
+
+    .chat-header {
+        background: $accent;
+        padding: 10px 12px;
+        cursor: pointer;
+
+        i {
+            cursor: pointer;
+        }
+    }
+
+    .chat-body {
+        padding: 15px;
+        height: calc(100% - 44px);
+        overflow: auto;
+        background: #fff;
+
+        .form-control {
+            background-color: rgb(255, 255, 255);
+            font-family: inherit;
+            box-shadow: none;
+            font-size: 0.875rem;
+            font-weight: normal;
+            color: rgb(17, 17, 17);
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(179, 179, 179);
+            border-image: initial;
+            transition: border-color 100ms linear 0s;
+            border-radius: 4px;
+            padding: 8px;
+            margin: 2px 0px;
+        }
+    }
+
+    &.open {
+        height: 470px;
+    }
+}

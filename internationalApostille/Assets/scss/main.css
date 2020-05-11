@@ -1,6 +1,5 @@
 ﻿/*Colores*/
 /*Fonts*/
-
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
 /*Layout*/
 .map-screen {
@@ -8,6 +7,10 @@
   width: 100%;
   height: 350px;
   margin-bottom: 30px; }
+
+.alignright {
+  float: right;
+  margin: 0 0 0 10px; }
 
 .week-day {
   position: relative;
@@ -814,6 +817,10 @@ h6 {
   .sidebar-section:not(:last-child) {
     border-bottom: 1px solid #eee; }
 
+.alignright {
+  float: right;
+  margin: 0 0 0 10px; }
+
 /*==================================
     TIMELINE
 ==================================*/
@@ -1191,3 +1198,44 @@ h6 {
       border-right-color: #eee; }
     .countries-list .country-item:nth-child(6n) {
       border-right-color: transparent; } }
+
+.chat-wrapper {
+  max-width: 360px;
+  position: fixed;
+  bottom: 0;
+  right: 30px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  overflow: hidden;
+  height: 44px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+  z-index: 9999;
+  transition: all .1s ease-in-out; }
+  .chat-wrapper .chat-header {
+    background: #b22332;
+    padding: 10px 12px;
+    cursor: pointer; }
+    .chat-wrapper .chat-header i {
+      cursor: pointer; }
+  .chat-wrapper .chat-body {
+    padding: 15px;
+    height: calc(100% - 44px);
+    overflow: auto;
+    background: #fff; }
+    .chat-wrapper .chat-body .form-control {
+      background-color: white;
+      font-family: inherit;
+      box-shadow: none;
+      font-size: 0.875rem;
+      font-weight: normal;
+      color: #111111;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #b3b3b3;
+      border-image: initial;
+      transition: border-color 100ms linear 0s;
+      border-radius: 4px;
+      padding: 8px;
+      margin: 2px 0px; }
+  .chat-wrapper.open {
+    height: 470px; }
